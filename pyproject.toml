@@ -1,0 +1,12 @@
+[project]
+name = "bookbuddy"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "duckdb>=1.4.5",
+    "huggingface-hub>=1.8.0",
+    "polars>=1.36.1",
+    "pyarrow>=21.0.0",
+]
