@@ -77,11 +77,14 @@ Phase 2
                   FastAPI
                       │
                       ▼
-                 Embedding
-                   Model
+               Embedding Model
                       │
                       ▼
-              Vector Search
+              Vector Store
+              (PostgreSQL + pgvector)
+                      │
+                      ▼
+            Semantic Retrieval
                       │
                       ▼
              Relevant Books
@@ -95,7 +98,7 @@ User Query
 Retriever
     │
     ▼
-Relevant Books
+Relevant Book Summaries + Metadata
     │
     ▼
 LLM
@@ -114,8 +117,8 @@ Phase 4
                            │
              ┌─────────────┼─────────────┐
              ▼             ▼             ▼
-      Preference       Retrieval       Tool
-         Agent           Agent         Agent
+      Preference       Retrieval       Internal Tool
+         Agent           Agent             Agent
              │             │             │
              └─────────────┼─────────────┘
                            ▼
@@ -127,6 +130,8 @@ Phase 4
                            ▼
                     Final Response
 
+The Internal Tool Agent uses BookBuddy's own application capabilities. External tool access through MCP is introduced in Phase 6.
+
 Phase 5
 
 User Interaction
@@ -135,10 +140,12 @@ User Interaction
 Preference Extraction
        │
        ▼
-User Memory
+Long-Term Preference Memory
        │
        ▼
 Future Recommendations
+
+Memory represents persistent reading preferences and useful user context rather than simply storing complete conversation transcripts.
 
 
 Phase 6 
@@ -153,7 +160,7 @@ Phase 6
       External      External     External
        Tool A        Tool B       Tool C
 
-Phase 7
+# 9. Phase 7 — Model Engineering Experiments
 
 Goal
 
