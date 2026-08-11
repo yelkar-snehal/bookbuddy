@@ -114,3 +114,94 @@ print("Length == 4 :",
 
 print("Empty :",
       df.filter(pl.col("first_published") == "").height)
+
+
+print("\n" + "=" * 80)
+print("UNIQUE AUTHORS")
+print("=" * 80)
+
+unique_authors = (
+    df
+    .filter(pl.col("author") != "")
+    .select("author")
+    .n_unique()
+)
+
+print(f"Unique author values: {unique_authors:,}")
+
+
+print("\n" + "=" * 80)
+print("AUTHOR METADATA CONSISTENCY")
+print("=" * 80)
+
+# Find authors that appear across multiple books.
+# For each author, check how many distinct about_author values they have.
+
+author_metadata = (
+    df
+    .filter(pl.col("author") != "")
+    .group_by("author")
+    .agg(
+        pl.len().alias("book_count"),
+        pl.col("about_author").n_unique().alias("about_author_variants"),
+    )
+    .sort("book_count", descending=True)
+)
+
+print("Authors with multiple books:")
+print(
+    author_metadata
+    .filter(pl.col("book_count") > 1)
+    .head(10)
+)
+
+print("\nAuthors with inconsistent about_author metadata:")
+print(
+    author_metadata
+    .filter(pl.col("about_author_variants") > 1)
+    .head(10)
+)
+
+
+print("\n" + "=" * 80)
+print("DUPLICATE ID INVESTIGATION")
+print("=" * 80)
+
+duplicate_id_stats = (
+    df
+    .group_by("id")
+    .agg(
+        pl.len().alias("row_count"),
+        pl.col("url").n_unique().alias("unique_urls"),
+        pl.col("name").n_unique().alias("unique_titles"),
+        pl.col("author").n_unique().alias("unique_authors"),
+    )
+    .filter(pl.col("row_count") > 1)
+)
+
+print(
+    duplicate_id_stats
+    .group_by(["unique_urls", "unique_titles", "unique_authors"])
+    .len()
+    .sort("len", descending=True)
+)
+
+print("\nExamples where duplicate IDs have different URLs:")
+
+different_url_ids = (
+    duplicate_id_stats
+    .filter(pl.col("unique_urls") > 1)
+    .head(5)
+)
+
+print(different_url_ids)
+
+for row in different_url_ids.iter_rows(named=True):
+    book_id = (
+        df
+        .filter(pl.col("id") == row["id"])
+        .select(["id", "name", "author", "url"])
+    )
+
+    print("\n" + "-" * 80)
+    print(book_id)
