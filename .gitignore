@@ -16,3 +16,6 @@ data/embeddings/
 
 # macOS
 .DS_Store
+
+# Confidential files
+.env
