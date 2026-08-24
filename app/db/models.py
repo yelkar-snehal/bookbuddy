@@ -15,7 +15,11 @@ class Author(Base):
     Identity(),
     primary_key=True,
 )
-    name: Mapped[str] = mapped_column(Text, nullable=False)
+    name: Mapped[str] = mapped_column(
+    Text,
+    nullable=False,
+    unique=True,
+)
     num_books: Mapped[int | None] = mapped_column(Integer)
     num_followers: Mapped[int | None] = mapped_column(Integer)
     about: Mapped[str | None] = mapped_column(Text)
