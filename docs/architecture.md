@@ -186,3 +186,120 @@ The objective is to understand the trade-offs between:
 * Memory requirements
 * Inference speed
 * Quality
+
+
+
+## AI Engineering Roadmap
+
+BookBuddy is intentionally being developed incrementally from a data/search application into an evaluated AI application.
+
+The goal is not to add technologies for résumé keywords. Each capability should solve a real problem in BookBuddy and provide an implementation that can be explained in an interview.
+
+### Phase 1 — Data and Search Foundation
+
+- Ingest Goodreads dataset
+- Profile, clean, and normalize source data
+- Store structured data in PostgreSQL
+- Build semantic search using embeddings and pgvector
+- Support metadata filtering
+- Expose search functionality through an API
+
+### Phase 2 — RAG
+
+Use the search foundation to provide grounded recommendations and answers.
+
+- Retrieve relevant books and authors
+- Construct context for the LLM
+- Generate recommendations/answers grounded in retrieved data
+- Include source books/citations
+- Handle insufficient retrieval without fabricating answers
+
+### Phase 3 — Agentic Layer
+
+Introduce LangGraph only when multiple tools and decision-making provide a real benefit.
+
+Potential BookBuddy tools:
+
+- Semantic search
+- Metadata filtering
+- Author lookup
+- Recommendations
+
+Concepts to demonstrate:
+
+- Tool calling
+- State
+- Routing / conditional edges
+- Retries
+- Fallbacks
+
+The initial design should remain a single agent. Multi-agent architecture should only be introduced if a concrete use case justifies it.
+
+### Phase 4 — MCP
+
+Expose selected BookBuddy capabilities through MCP.
+
+The implementation should demonstrate understanding of:
+
+- MCP server
+- MCP client
+- Tools
+- Tool schemas
+- Calling BookBuddy capabilities through MCP
+
+MCP should be added because it provides a useful integration boundary, not simply because it is a current AI technology.
+
+### Phase 5 — Evaluation and Observability
+
+Create a small evaluation dataset of representative BookBuddy queries.
+
+Initially target approximately 20–30 queries.
+
+Evaluate:
+
+- Retrieval quality
+- Answer quality
+- Grounding
+- Regression across changes
+
+Add observability for:
+
+- Model calls
+- Latency
+- Token usage
+- Retrieval behavior
+- Failures
+
+A tracing/evaluation platform such as Langfuse may be introduced here.
+
+### Phase 6 — Production Engineering
+
+Add production concerns incrementally:
+
+- Docker
+- CI/CD
+- Unit tests
+- Integration tests
+- Input/output validation
+- AI security considerations
+- Prompt injection awareness
+- Tool boundaries
+- Authorization where relevant
+- Deployment
+
+## Guiding Principle
+
+BookBuddy should evolve through the following progression:
+
+```text
+Data project
+    ↓
+Semantic search
+    ↓
+RAG
+    ↓
+Agent
+    ↓
+MCP
+    ↓
+Evaluated and observable AI application
