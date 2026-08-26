@@ -8,6 +8,17 @@ from sqlalchemy.orm import Session
 from app.db.database import engine
 from app.db.models import Author, Book
 
+import logging
+import time
+
+start_time = time.perf_counter()
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(message)s",
+)
+
+logger = logging.getLogger(__name__)
 
 PARQUET_PATH = "data/processed/Goodreads-Books.parquet"
 SAMPLE_SIZE = None
@@ -164,9 +175,10 @@ def main() -> None:
     df = pl.read_parquet(PARQUET_PATH)
     rows = [transform_row(row) for row in df.iter_rows(named=True)]
     batch_size = 10_000
+    total_rows = len(rows)
 
     with Session(engine) as session:
-        for start in range(0, len(rows), batch_size):
+        for start in range(0, total_rows, batch_size):
             batch = rows[start:start + batch_size]
             result = ingest_batch(session, batch)
             books_inserted += result["books_inserted"]
@@ -175,6 +187,18 @@ def main() -> None:
             books_without_author += sum(
                 1 for row in batch
                 if not row["author_name"]
+            )
+            processed = min(start + batch_size, total_rows)
+            elapsed = time.perf_counter() - start_time
+            rate = processed / elapsed if elapsed else 0
+            logger.info(
+                "Processed %d/%d rows | books=%d | authors=%d | skipped=%d | rate=%.2f rows/sec",
+                processed,
+                total_rows,
+                books_inserted,
+                authors_created,
+                skipped_existing_book,
+                rate
             )
         session.commit()
 
