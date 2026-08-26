@@ -10,7 +10,7 @@ from app.db.models import Author, Book
 
 
 PARQUET_PATH = "data/processed/Goodreads-Books.parquet"
-SAMPLE_SIZE = 10_000
+SAMPLE_SIZE = None
 
 
 def parse_kindle_price(value: str) -> Decimal | None:
@@ -75,55 +75,85 @@ def transform_row(row: dict) -> dict:
         ),
     }
 
-def ingest_row(session: Session, data: dict) -> tuple[bool, bool, bool]:
-    author = None
+def ingest_batch(session: Session, rows: list[dict]) -> dict:
+    author_names = {
+        row["author_name"]
+        for row in rows
+        if row["author_name"]
+    }
 
-    if data["author_name"]:
-        author = session.scalar(
-            select(Author).where(Author.name == data["author_name"])
+    existing_authors = session.scalars(
+        select(Author).where(Author.name.in_(author_names))
+    ).all()
+
+    authors_by_name = {
+        author.name: author
+        for author in existing_authors
+    }
+
+    authors_created = 0
+
+    for row in rows:
+        author_name = row["author_name"]
+
+        if not author_name or author_name in authors_by_name:
+            continue
+
+        metadata = row["author_metadata"]
+
+        author = Author(
+            name=author_name,
+            num_books=metadata["num_books"],
+            num_followers=metadata["num_followers"],
+            about=metadata["about"],
         )
 
-        if author is None:
-            author = Author(
-                name=data["author_name"],
-                num_books=data["author_metadata"]["num_books"],
-                num_followers=data["author_metadata"]["num_followers"],
-                about=data["author_metadata"]["about"],
+        session.add(author)
+        authors_by_name[author_name] = author
+        authors_created += 1
+
+    session.flush()
+
+    book_urls = {row["url"] for row in rows}
+
+    existing_urls = set(
+        session.scalars(
+            select(Book.url).where(Book.url.in_(book_urls))
+        ).all()
+    )
+
+    books = []
+
+    for row in rows:
+        if row["url"] in existing_urls:
+            continue
+
+        author = authors_by_name.get(row["author_name"])
+
+        books.append(
+            Book(
+                goodreads_id=row["goodreads_id"],
+                url=row["url"],
+                title=row["title"],
+                author_id=author.id if author else None,
+                summary=row["summary"],
+                star_rating=row["star_rating"],
+                num_ratings=row["num_ratings"],
+                num_reviews=row["num_reviews"],
+                genres=row["genres"],
+                first_published=row["first_published"],
+                kindle_price=row["kindle_price"],
+                community_reviews=row["community_reviews"],
             )
-            session.add(author)
-            session.flush()
+        )
 
-            author_created = True
-        else:
-            author_created = False
-    else:
-        author_created = False
+    session.add_all(books)
 
-    book = session.scalar(
-        select(Book).where(Book.url == data["url"])
-    )
-
-    if book is not None:
-        return False, author_created, True
-
-    book = Book(
-        goodreads_id=data["goodreads_id"],
-        url=data["url"],
-        title=data["title"],
-        author_id=author.id if author else None,
-        summary=data["summary"],
-        star_rating=data["star_rating"],
-        num_ratings=data["num_ratings"],
-        num_reviews=data["num_reviews"],
-        genres=data["genres"],
-        first_published=data["first_published"],
-        kindle_price=data["kindle_price"],
-        community_reviews=data["community_reviews"],
-    )
-
-    session.add(book)
-
-    return True, author_created, False
+    return {
+        "authors_created": authors_created,
+        "books_inserted": len(books),
+        "books_skipped": len(existing_urls),
+    }
 
 def main() -> None:
     read = 0
@@ -131,28 +161,24 @@ def main() -> None:
     skipped_existing_book = 0
     books_inserted = 0
     authors_created = 0
-    df = pl.read_parquet(PARQUET_PATH).head(SAMPLE_SIZE)
+    df = pl.read_parquet(PARQUET_PATH)
+    rows = [transform_row(row) for row in df.iter_rows(named=True)]
+    batch_size = 10_000
 
     with Session(engine) as session:
-        for row in df.iter_rows(named=True):
-            read += 1
-            data = transform_row(row)
-            book_inserted, author_created, book_skipped = ingest_row(
-                session, data
+        for start in range(0, len(rows), batch_size):
+            batch = rows[start:start + batch_size]
+            result = ingest_batch(session, batch)
+            books_inserted += result["books_inserted"]
+            authors_created += result["authors_created"]
+            skipped_existing_book += result["books_skipped"]
+            books_without_author += sum(
+                1 for row in batch
+                if not row["author_name"]
             )
-            if not data["author_name"]:
-                books_without_author += 1
-
-            if book_inserted:
-                books_inserted += 1
-
-            if author_created:
-                authors_created += 1
-
-            if book_skipped:
-                skipped_existing_book += 1
         session.commit()
 
+    read = len(rows)
     print(f"Read: {read}")
     print(f"Books inserted: {books_inserted}")
     print(f"Authors created: {authors_created}")
