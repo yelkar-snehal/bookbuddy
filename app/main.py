@@ -1,8 +1,9 @@
 from fastapi import FastAPI
-from app.api import books
+from app.api import authors, books
 
 app = FastAPI(title="BookBuddy")
 
+app.include_router(authors.router)
 app.include_router(books.router)
 
 
