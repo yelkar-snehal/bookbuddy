@@ -95,6 +95,8 @@ This is a practical first choice for BookBuddy because it is fast to run locally
 
 The vector size must match the embedding model output size. If BookBuddy later switches to a larger embedding model, the vector column size should be changed deliberately through a migration.
 
+BookBuddy stores the embedding model name and embedding dimension with each embedding record so future model changes can be tracked explicitly.
+
 
 Phase 3
 
