@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends, Query
 from sentence_transformers import SentenceTransformer
-from sqlalchemy import select, text
+from sqlalchemy import text
 from sqlalchemy.orm import Session
 
 from app.db.database import SessionLocal
-from app.db.models import Book
 from app.schemas.books import BookResponse
+from app.schemas.search import BookSearchResult
 
 router = APIRouter(prefix="/search", tags=["search"])
 
@@ -32,7 +32,7 @@ def vector_literal(embedding: list[float]) -> str:
     return "[" + ",".join(str(value) for value in embedding) + "]"
 
 
-@router.get("/books", response_model=list[BookResponse])
+@router.get("/books", response_model=list[BookSearchResult])
 def search_books(
     q: str = Query(min_length=1),
     limit: int = Query(default=10, ge=1, le=50),
@@ -41,20 +41,27 @@ def search_books(
     model = get_embedding_model()
     query_embedding = model.encode(q, normalize_embeddings=True).tolist()
 
-    return db.scalars(
-        select(Book).from_statement(
-            text(
-                """
-                SELECT books.*
-                FROM books
-                JOIN book_embeddings
-                    ON book_embeddings.book_id = books.id
-                WHERE book_embeddings.embedding_model = :embedding_model
-                    AND book_embeddings.embedding_dimension = :embedding_dimension
-                ORDER BY book_embeddings.embedding <=> CAST(:query_embedding AS vector)
-                LIMIT :limit
-                """
-            )
+    rows = db.execute(
+        text(
+            """
+            SELECT
+                books.id,
+                books.title,
+                books.goodreads_id,
+                books.url,
+                books.author_id,
+                books.star_rating,
+                books.num_ratings,
+                books.num_reviews,
+                book_embeddings.embedding <=> CAST(:query_embedding AS vector) AS distance
+            FROM books
+            JOIN book_embeddings
+                ON book_embeddings.book_id = books.id
+            WHERE book_embeddings.embedding_model = :embedding_model
+                AND book_embeddings.embedding_dimension = :embedding_dimension
+            ORDER BY distance
+            LIMIT :limit
+            """
         ),
         {
             "embedding_model": EMBEDDING_MODEL,
@@ -62,4 +69,12 @@ def search_books(
             "query_embedding": vector_literal(query_embedding),
             "limit": limit,
         },
-    ).all()
+    ).mappings().all()
+
+    return [
+        BookSearchResult(
+            book=BookResponse.model_validate(row),
+            distance=row["distance"],
+        )
+        for row in rows
+    ]
