@@ -3,7 +3,7 @@ from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.db.database import SessionLocal
-from app.db.models import Book
+from app.db.models import Author, Book
 from app.schemas.books import BookResponse
 
 router = APIRouter(prefix="/books", tags=["books"])
@@ -18,10 +18,20 @@ def get_db():
 def list_books(
     limit: int = Query(default=20, ge=1, le=100),
     offset: int = Query(default=0, ge=0),
+    title: str | None = Query(default=None, min_length=1),
+    author: str | None = Query(default=None, min_length=1),
     db: Session = Depends(get_db),
 ):
+    query = select(Book)
+
+    if title is not None:
+        query = query.where(Book.title.ilike(f"%{title}%"))
+
+    if author is not None:
+        query = query.join(Book.author).where(Author.name.ilike(f"%{author}%"))
+
     return db.scalars(
-        select(Book)
+        query
         .order_by(Book.id)
         .limit(limit)
         .offset(offset)
