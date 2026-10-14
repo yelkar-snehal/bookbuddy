@@ -89,6 +89,12 @@ Phase 2
                       ▼
              Relevant Books
 
+The initial embedding size is 384 dimensions because it matches lightweight local embedding models such as `sentence-transformers/all-MiniLM-L6-v2`.
+
+This is a practical first choice for BookBuddy because it is fast to run locally, efficient to store in PostgreSQL, and suitable for semantic search over book titles, summaries, and genres.
+
+The vector size must match the embedding model output size. If BookBuddy later switches to a larger embedding model, the vector column size should be changed deliberately through a migration.
+
 
 Phase 3
 
