@@ -1,6 +1,6 @@
 services:
   db:
-    image: postgres:13
+    image: pgvector/pgvector:pg13
     environment:
       POSTGRES_USER: bookbuddy_user
       POSTGRES_PASSWORD: bookbuddy_password
