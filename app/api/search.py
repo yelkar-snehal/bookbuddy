@@ -36,6 +36,7 @@ def vector_literal(embedding: list[float]) -> str:
 def search_books(
     q: str = Query(min_length=1),
     limit: int = Query(default=10, ge=1, le=50),
+    min_ratings: int | None = Query(default=None, ge=0),
     db: Session = Depends(get_db),
 ):
     model = get_embedding_model()
@@ -59,6 +60,12 @@ def search_books(
                 ON book_embeddings.book_id = books.id
             WHERE book_embeddings.embedding_model = :embedding_model
                 AND book_embeddings.embedding_dimension = :embedding_dimension
+                -- Books with few ratings are mostly study guides, summaries
+                -- and obscure titles that crowd out the books readers want.
+                AND (
+                    CAST(:min_ratings AS integer) IS NULL
+                    OR books.num_ratings >= :min_ratings
+                )
             ORDER BY distance
             LIMIT :limit
             """
@@ -68,6 +75,7 @@ def search_books(
             "embedding_dimension": EMBEDDING_DIMENSION,
             "query_embedding": vector_literal(query_embedding),
             "limit": limit,
+            "min_ratings": min_ratings,
         },
     ).mappings().all()
 

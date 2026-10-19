@@ -1,3 +1,4 @@
+import argparse
 import json
 import logging
 import sys
@@ -67,7 +68,7 @@ def fetch_author_names(session: Session, author_ids: set[int]) -> dict[int, str]
     return {row.id: row.name for row in rows}
 
 
-def evaluate_query(session: Session, query: dict) -> dict:
+def evaluate_query(session: Session, query: dict, min_ratings: int | None) -> dict:
     expected_books = []
     unresolved = []
 
@@ -81,7 +82,14 @@ def evaluate_query(session: Session, query: dict) -> dict:
 
     # Call the API function directly, so the evaluation always measures
     # the same SQL and model that the endpoint uses.
-    results = search_books(q=query["query"], limit=TOP_K, db=session)
+    # Pass every argument: a missing one would get FastAPI's Query object
+    # as its value instead of the default.
+    results = search_books(
+        q=query["query"],
+        limit=TOP_K,
+        min_ratings=min_ratings,
+        db=session,
+    )
     result_ids = [result.book.id for result in results]
     author_names = fetch_author_names(
         session,
@@ -179,26 +187,46 @@ def print_report(results: list[dict], summary: dict) -> None:
             print(f"  {query_id}: {expected['title']} / {expected['author']}")
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Evaluate semantic book search.")
+    parser.add_argument(
+        "--min-ratings",
+        type=int,
+        default=None,
+        help="Only return books with at least this many ratings.",
+    )
+    return parser.parse_args()
+
+
 def main() -> None:
+    args = parse_args()
     queries = json.loads(QUERIES_PATH.read_text())["queries"]
-    logger.info("Evaluating %d queries with %s, top %d", len(queries), EMBEDDING_MODEL, TOP_K)
+    logger.info(
+        "Evaluating %d queries with %s, top %d, min_ratings=%s",
+        len(queries),
+        EMBEDDING_MODEL,
+        TOP_K,
+        args.min_ratings,
+    )
 
     with Session(engine) as session:
         results = []
         for query in queries:
             logger.info("Running %s: %s", query["id"], query["query"])
-            results.append(evaluate_query(session, query))
+            results.append(evaluate_query(session, query, args.min_ratings))
 
     summary = summarize(results)
     print_report(results, summary)
 
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    output_path = RESULTS_DIR / f"retrieval_{datetime.now():%Y%m%d_%H%M%S}.json"
+    run_label = f"min{args.min_ratings}" if args.min_ratings is not None else "nofilter"
+    output_path = RESULTS_DIR / f"retrieval_{datetime.now():%Y%m%d_%H%M%S}_{run_label}.json"
     output_path.write_text(
         json.dumps(
             {
                 "embedding_model": EMBEDDING_MODEL,
                 "top_k": TOP_K,
+                "min_ratings": args.min_ratings,
                 "summary": summary,
                 "results": results,
             },
