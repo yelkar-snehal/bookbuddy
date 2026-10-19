@@ -1,0 +1,311 @@
+{
+  "description": "Retrieval evaluation set for semantic book search. An expected book matches any edition whose title starts with the expected title and whose author name contains the expected author (case-insensitive).",
+  "queries": [
+    {
+      "id": "q01",
+      "type": "plot",
+      "query": "a smuggler living in the first city on the Moon gets pulled into a conspiracy",
+      "expected": [
+        {
+          "title": "Artemis",
+          "author": "Andy Weir"
+        }
+      ]
+    },
+    {
+      "id": "q02",
+      "type": "plot",
+      "query": "a reporter returns to her small hometown to cover the murders of two young girls",
+      "expected": [
+        {
+          "title": "Sharp Objects",
+          "author": "Gillian Flynn"
+        }
+      ]
+    },
+    {
+      "id": "q03",
+      "type": "plot",
+      "query": "a boy finds out he is a wizard and goes to a school of magic",
+      "expected": [
+        {
+          "title": "Harry Potter and the Sorcerer's Stone",
+          "author": "Rowling"
+        }
+      ]
+    },
+    {
+      "id": "q04",
+      "type": "plot",
+      "query": "teenagers are forced to fight to the death in a televised game",
+      "expected": [
+        {
+          "title": "The Hunger Games",
+          "author": "Suzanne Collins"
+        },
+        {
+          "title": "Battle Royale",
+          "author": "Koushun Takami"
+        }
+      ]
+    },
+    {
+      "id": "q05",
+      "type": "plot",
+      "query": "a totalitarian state where Big Brother watches everyone",
+      "expected": [
+        {
+          "title": "1984",
+          "author": "George Orwell"
+        }
+      ]
+    },
+    {
+      "id": "q06",
+      "type": "plot",
+      "query": "a girl in the American South whose father defends a Black man accused of a crime he did not commit",
+      "expected": [
+        {
+          "title": "To Kill a Mockingbird",
+          "author": "Harper Lee"
+        }
+      ]
+    },
+    {
+      "id": "q07",
+      "type": "plot",
+      "query": "a hobbit travels with dwarves to take back their treasure from a dragon",
+      "expected": [
+        {
+          "title": "The Hobbit",
+          "author": "Tolkien"
+        }
+      ]
+    },
+    {
+      "id": "q08",
+      "type": "plot",
+      "query": "a woman disappears on her wedding anniversary and her husband becomes the main suspect",
+      "expected": [
+        {
+          "title": "L'amore bugiardo",
+          "author": "Gillian Flynn"
+        }
+      ]
+    },
+    {
+      "id": "q09",
+      "type": "plot",
+      "query": "a scientist creates a living creature from parts of dead bodies",
+      "expected": [
+        {
+          "title": "Frankenstein",
+          "author": "Shelley"
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "type": "plot",
+      "query": "a ship captain is obsessed with hunting a white whale",
+      "expected": [
+        {
+          "title": "Moby",
+          "author": "Herman Melville"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "type": "plot",
+      "query": "a woman who survived the murder of her family as a child looks into the crime again decades later",
+      "expected": [
+        {
+          "title": "Dark Places",
+          "author": "Gillian Flynn"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "type": "mood",
+      "query": "hopeful, character-driven science fiction about a found family on a spaceship",
+      "expected": [
+        {
+          "title": "The Long Way to a Small, Angry Planet",
+          "author": "Becky Chambers"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "type": "mood",
+      "query": "dark academia about a group of classics students who commit a murder",
+      "expected": [
+        {
+          "title": "The Secret History",
+          "author": "Donna Tartt"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "type": "mood",
+      "query": "a heartbreaking story about friendship, betrayal and guilt in Afghanistan",
+      "expected": [
+        {
+          "title": "The Kite Runner",
+          "author": "Khaled Hosseini"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "type": "mood",
+      "query": "epic fantasy with a hard magic system where people burn metals for powers",
+      "expected": [
+        {
+          "title": "Mistborn",
+          "author": "Brandon Sanderson"
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "type": "mood",
+      "query": "a feel-good story about a grumpy old man whose life is changed by his new neighbours",
+      "expected": [
+        {
+          "title": "A Man Called Ove",
+          "author": "Fredrik Backman"
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "type": "similar_to",
+      "query": "books like The Martian",
+      "expected": [
+        {
+          "title": "Artemis",
+          "author": "Andy Weir"
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "type": "similar_to",
+      "query": "books like Gone Girl",
+      "expected": [
+        {
+          "title": "The Girl on the Train",
+          "author": "Paula Hawkins"
+        },
+        {
+          "title": "Sharp Objects",
+          "author": "Gillian Flynn"
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "type": "similar_to",
+      "query": "books like The Hunger Games",
+      "expected": [
+        {
+          "title": "Divergent",
+          "author": "Veronica Roth"
+        },
+        {
+          "title": "The Maze Runner",
+          "author": "James Dashner"
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "type": "similar_to",
+      "query": "books like Harry Potter but for adults",
+      "expected": [
+        {
+          "title": "The Magicians",
+          "author": "Lev Grossman"
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "type": "lookup",
+      "query": "Dune by Frank Herbert",
+      "expected": [
+        {
+          "title": "Dune",
+          "author": "Frank Herbert"
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "type": "lookup",
+      "query": "Pride and Prejudice",
+      "expected": [
+        {
+          "title": "Pride and Prejudice",
+          "author": "Jane Austen"
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "type": "lookup",
+      "query": "Stephen King The Shining",
+      "expected": [
+        {
+          "title": "The Shining",
+          "author": "Stephen King"
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "type": "lookup",
+      "query": "Sapiens",
+      "expected": [
+        {
+          "title": "Sapiens",
+          "author": "Yuval Noah Harari"
+        }
+      ]
+    },
+    {
+      "id": "q25",
+      "type": "nonfiction",
+      "query": "a history of how humans evolved and built civilisations",
+      "expected": [
+        {
+          "title": "Sapiens",
+          "author": "Yuval Noah Harari"
+        },
+        {
+          "title": "Guns, Germs, and Steel",
+          "author": "Jared Diamond"
+        }
+      ]
+    },
+    {
+      "id": "q26",
+      "type": "nonfiction",
+      "query": "how habits form and how to change them",
+      "expected": [
+        {
+          "title": "The Power of Habit",
+          "author": "Charles Duhigg"
+        },
+        {
+          "title": "Atomic Habits",
+          "author": "James Clear"
+        }
+      ]
+    }
+  ]
+}
