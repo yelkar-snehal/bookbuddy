@@ -14,7 +14,8 @@ from app.db.database import engine
 
 EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 EMBEDDING_DIMENSION = 384
-BATCH_SIZE = 128
+FETCH_SIZE = 2048
+ENCODE_BATCH_SIZE = 128
 BOOK_LIMIT = None
 
 logging.basicConfig(
@@ -46,7 +47,14 @@ def vector_literal(embedding: list[float]) -> str:
     return "[" + ",".join(str(value) for value in embedding) + "]"
 
 
-def fetch_next_books_without_embeddings(session: Session, limit: int) -> list[dict]:
+def fetch_next_books_without_embeddings(
+    session: Session,
+    after_id: int,
+    limit: int,
+) -> list[dict]:
+    # Keyset pagination: start after the last book we saw, so each batch
+    # reads from the primary key index instead of re-scanning every book
+    # that is already embedded.
     rows = session.execute(
         text(
             """
@@ -58,13 +66,17 @@ def fetch_next_books_without_embeddings(session: Session, limit: int) -> list[di
                 books.summary
             FROM books
             LEFT JOIN authors ON authors.id = books.author_id
-            LEFT JOIN book_embeddings ON book_embeddings.book_id = books.id
-            WHERE book_embeddings.id IS NULL
+            WHERE books.id > :after_id
+                AND NOT EXISTS (
+                    SELECT 1
+                    FROM book_embeddings
+                    WHERE book_embeddings.book_id = books.id
+                )
             ORDER BY books.id
             LIMIT :limit
             """
         ),
-        {"limit": limit},
+        {"after_id": after_id, "limit": limit},
     ).mappings().all()
 
     return [dict(row) for row in rows]
@@ -112,25 +124,38 @@ def main() -> None:
     start_time = time.perf_counter()
     logger.info("Loading embedding model: %s", EMBEDDING_MODEL)
     model = SentenceTransformer(EMBEDDING_MODEL)
+    # On Apple Silicon this should be "mps". "cpu" means the GPU is unused.
+    logger.info("Embedding device: %s", model.device)
 
     with Session(engine) as session:
         processed = 0
+        # The first fetch skips every embedded book once. After that, each
+        # fetch starts from the last book id, so the cost per batch stays flat.
+        last_book_id = 0
 
         while BOOK_LIMIT is None or processed < BOOK_LIMIT:
-            remaining = BOOK_LIMIT - processed if BOOK_LIMIT is not None else BATCH_SIZE
-            batch_limit = min(BATCH_SIZE, remaining)
-            batch = fetch_next_books_without_embeddings(session, batch_limit)
+            remaining = BOOK_LIMIT - processed if BOOK_LIMIT is not None else FETCH_SIZE
+            batch_limit = min(FETCH_SIZE, remaining)
+            batch_start = time.perf_counter()
+            batch = fetch_next_books_without_embeddings(
+                session,
+                last_book_id,
+                batch_limit,
+            )
 
             if not batch:
                 logger.info("No more books without embeddings")
                 break
+
+            last_book_id = batch[-1]["id"]
+            fetch_seconds = time.perf_counter() - batch_start
 
             for book in batch:
                 book["source_text"] = build_source_text(book)
 
             embeddings = model.encode(
                 [book["source_text"] for book in batch],
-                batch_size=BATCH_SIZE,
+                batch_size=ENCODE_BATCH_SIZE,
                 normalize_embeddings=True,
             ).tolist()
 
@@ -138,12 +163,18 @@ def main() -> None:
             session.commit()
 
             processed += len(batch)
+            batch_seconds = time.perf_counter() - batch_start
             elapsed = time.perf_counter() - start_time
-            rate = processed / elapsed if elapsed else 0
+            # batch_rate shows the current speed. The overall rate is an
+            # average since start and hides a slowdown.
             logger.info(
-                "Embedded %d books | rate=%.2f books/sec",
+                "Embedded %d books | batch_rate=%.2f books/sec | "
+                "fetch=%.2fs | overall_rate=%.2f books/sec | last_book_id=%d",
                 processed,
-                rate,
+                len(batch) / batch_seconds if batch_seconds else 0,
+                fetch_seconds,
+                processed / elapsed if elapsed else 0,
+                last_book_id,
             )
 
 
