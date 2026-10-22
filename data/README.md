@@ -35,7 +35,7 @@ data/
 Run:
 
 ```bash
-uv run scripts/01_convert_to_parquet.py
+uv run scripts/01_convert_dataset.py
 ```
 
 This generates:
