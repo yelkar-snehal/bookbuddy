@@ -178,3 +178,63 @@ All the expected books in the evaluation set are well known. A popularity filter
 ### Next step
 
 Use popularity in the ranking instead of as a filter. Take the 200 nearest books by meaning, then re-rank them by similarity plus a weighted `log(num_ratings)`. Tune the weight with the evaluation set, after I add less-known books to it.
+
+---
+
+## 4. Hybrid search: keyword and semantic lanes fused with RRF
+
+Date: 2026-11-02
+Code: `app/api/search.py` (`mode=hybrid`), `migrations/versions/e7f3a9c2b1d5_add_keyword_search_indexes.py`, `scripts/07_evaluate_retrieval.py --mode`
+
+### Problem
+
+Semantic search is weak for exact lookups. For "Dune by Frank Herbert", a study guide about the desert planet can be closer in meaning than the book itself. A keyword search on the title and the author name finds the book directly.
+
+### What I built
+
+An optional `mode=hybrid` for `GET /search/books`. The default stays `semantic`, so earlier results stay comparable. Hybrid search runs two lanes:
+
+- The semantic lane: the 50 nearest books by cosine distance, as before.
+- The keyword lane: the 50 best PostgreSQL full-text matches on the book title and the author name. The query terms are joined with OR, so "Dune by Frank Herbert" matches the title "Dune" and the author "Frank Herbert" separately. `ts_rank` is not BM25, but it follows the same idea: a book that contains more of the query terms ranks higher.
+
+The two lists are merged with Reciprocal Rank Fusion (RRF). Each book gets `1 / (60 + rank)` from each lane that found it, and the scores are added. RRF uses only the rank, so it does not need to compare a cosine distance with a text-search score.
+
+Two GIN expression indexes make the keyword lane fast: `to_tsvector('english', title)` on books and `to_tsvector('simple', name)` on authors. Expression indexes do not rewrite the 6.4 million row table. Author names use the `simple` configuration, because names must not be stemmed.
+
+Two details needed care:
+
+- `plainto_tsquery` joins the terms with AND. I replace AND with OR in its text form and parse the result again with the `simple` configuration. The `english` configuration would stem the terms a second time.
+- The keyword lane looks up titles and authors in two separate queries joined with UNION. One query with `OR` across two tables cannot use both indexes.
+
+### Result
+
+| min_ratings | Semantic recall@10 | Semantic MRR | Hybrid recall@10 | Hybrid MRR |
+|---|---|---|---|---|
+| none | 0.115 | 0.063 | 0.115 | 0.042 |
+| 1,000 | 0.327 | 0.232 | 0.288 | 0.174 |
+| 10,000 | 0.404 | 0.273 | 0.442 | 0.342 |
+
+Hybrid search with the 10,000 filter gives the best result so far. Without the filter and at 1,000, hybrid search is worse than semantic search alone.
+
+Results by query type with no filter (recall@10):
+
+| Mode | lookup | mood | nonfiction | plot | similar_to |
+|---|---|---|---|---|---|
+| Semantic | 0.25 | 0.0 | 0.0 | 0.182 | 0.0 |
+| Hybrid | 0.5 | 0.0 | 0.0 | 0.091 | 0.0 |
+
+### Analysis
+
+- The keyword lane helps lookups. Lookup recall doubled from 0.25 to 0.5.
+- The keyword lane hurts plot queries. For "a woman disappears on her wedding anniversary", it matches thousands of titles that contain "woman" or "wedding". In RRF both lanes have the same weight, so these random matches push good semantic results out of the top 10.
+- With the 10,000 filter, the keyword lane has far fewer random matches, so it helps more than it hurts.
+
+### What I learned
+
+- Hybrid search is not automatically better. It helps the query types that the keyword lane suits and can hurt the others.
+- Look at the results by query type. The overall score hid that lookups improved while plot queries got worse.
+- RRF is simple because it uses ranks only, but equal weights assume that both lanes are equally reliable. Here they are not.
+
+### Next step
+
+Weighted RRF: give the keyword lane a lower weight than the semantic lane, and choose the weight with the evaluation set.
