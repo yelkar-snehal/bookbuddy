@@ -1,0 +1,2535 @@
+{
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 10,
+  "mode": "hybrid",
+  "min_ratings": 10000,
+  "summary": {
+    "overall": {
+      "queries": 26,
+      "recall@10": 0.442,
+      "mrr": 0.342,
+      "hit_rate": 0.462
+    },
+    "by_type": {
+      "lookup": {
+        "queries": 4,
+        "recall@10": 1.0,
+        "mrr": 0.833,
+        "hit_rate": 1.0
+      },
+      "mood": {
+        "queries": 5,
+        "recall@10": 0.6,
+        "mrr": 0.112,
+        "hit_rate": 0.6
+      },
+      "nonfiction": {
+        "queries": 2,
+        "recall@10": 1.0,
+        "mrr": 1.0,
+        "hit_rate": 1.0
+      },
+      "plot": {
+        "queries": 11,
+        "recall@10": 0.227,
+        "mrr": 0.273,
+        "hit_rate": 0.273
+      },
+      "similar_to": {
+        "queries": 4,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "hit_rate": 0.0
+      }
+    },
+    "unscored_queries": []
+  },
+  "results": [
+    {
+      "id": "q01",
+      "type": "plot",
+      "query": "a smuggler living in the first city on the Moon gets pulled into a conspiracy",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 1148099,
+          "title": "The First Men in the Moon",
+          "author": "H.G. Wells",
+          "distance": 0.6102,
+          "score": 0.02944
+        },
+        {
+          "rank": 2,
+          "book_id": 5094128,
+          "title": "The Moon Is a Harsh Mistress",
+          "author": "Robert A. Heinlein",
+          "distance": 0.5962,
+          "score": 0.02942
+        },
+        {
+          "rank": 3,
+          "book_id": 1108905,
+          "title": "The Pull of the Moon",
+          "author": "Elizabeth Berg",
+          "distance": 0.6391,
+          "score": 0.02721
+        },
+        {
+          "rank": 4,
+          "book_id": 3560668,
+          "title": "Killers of the Flower Moon: The Osage Murders and the Birth of the FBI",
+          "author": "David Grann",
+          "distance": 0.6218,
+          "score": 0.02445
+        },
+        {
+          "rank": 5,
+          "book_id": 5865220,
+          "title": "The City & the City",
+          "author": "China Mi\u00e9ville",
+          "distance": 0.6636,
+          "score": 0.02341
+        },
+        {
+          "rank": 6,
+          "book_id": 3233910,
+          "title": "City of Thieves",
+          "author": "David Benioff",
+          "distance": 0.663,
+          "score": 0.01928
+        },
+        {
+          "rank": 7,
+          "book_id": 6249180,
+          "title": "Space Case",
+          "author": "Stuart Gibbs",
+          "distance": 0.4837,
+          "score": 0.01639
+        },
+        {
+          "rank": 8,
+          "book_id": 201670,
+          "title": "The First Fifteen Lives of Harry August",
+          "author": "Claire North",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 9,
+          "book_id": 3186166,
+          "title": "Half Moon Investigations",
+          "author": "Eoin Colfer",
+          "distance": 0.5373,
+          "score": 0.01613
+        },
+        {
+          "rank": 10,
+          "book_id": 3618273,
+          "title": "Psycho-Cybernetics: A New Way to Get More Living Out of Life",
+          "author": "Maxwell Maltz",
+          "distance": null,
+          "score": 0.01613
+        }
+      ]
+    },
+    {
+      "id": "q02",
+      "type": "plot",
+      "query": "a reporter returns to her small hometown to cover the murders of two young girls",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 1835992,
+          "title": "Two Little Girls in Blue",
+          "author": "Mary Higgins Clark",
+          "distance": 0.5199,
+          "score": 0.02568
+        },
+        {
+          "rank": 2,
+          "book_id": 6297797,
+          "title": "Two Girls Down",
+          "author": "Louisa Luna",
+          "distance": 0.5189,
+          "score": 0.02546
+        },
+        {
+          "rank": 3,
+          "book_id": 1920093,
+          "title": "Pretty Girls",
+          "author": "Karin Slaughter",
+          "distance": 0.4891,
+          "score": 0.02434
+        },
+        {
+          "rank": 4,
+          "book_id": 1254447,
+          "title": "Not That Kind of Girl: A Young Woman Tells You What She's \"Learned\"",
+          "author": "Lena Dunham",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 5,
+          "book_id": 3585403,
+          "title": "Their Lost Daughters",
+          "author": "Joy Ellis",
+          "distance": 0.4332,
+          "score": 0.01639
+        },
+        {
+          "rank": 6,
+          "book_id": 5047874,
+          "title": "The Innocent Man: Murder and Injustice in a Small Town",
+          "author": "John Grisham",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 7,
+          "book_id": 4269795,
+          "title": "The Girl Who Was Taken",
+          "author": "Charlie Donlea",
+          "distance": 0.4368,
+          "score": 0.01613
+        },
+        {
+          "rank": 8,
+          "book_id": 3520974,
+          "title": "Don't Judge a Girl by Her Cover",
+          "author": "Ally Carter",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 9,
+          "book_id": 4767263,
+          "title": "What the Dead Know",
+          "author": "Laura Lippman",
+          "distance": 0.4425,
+          "score": 0.01587
+        },
+        {
+          "rank": 10,
+          "book_id": 1012177,
+          "title": "The Good Daughter",
+          "author": "Karin Slaughter",
+          "distance": 0.4488,
+          "score": 0.01562
+        }
+      ]
+    },
+    {
+      "id": "q03",
+      "type": "plot",
+      "query": "a boy finds out he is a wizard and goes to a school of magic",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 1694908,
+          "title": "The Unofficial Harry Potter Cookbook: From Cauldron Cakes to Knickerbocker Glory--More Than 150 Magical Recipes for Wizards and Non-Wizards Alike",
+          "author": "Dinah Bucholz",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 2,
+          "book_id": 1285252,
+          "title": "The Wizards of Once",
+          "author": "Cressida Cowell",
+          "distance": 0.4698,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 1541557,
+          "title": "The Magic Thief",
+          "author": "Sarah Prineas",
+          "distance": 0.4823,
+          "score": 0.01613
+        },
+        {
+          "rank": 4,
+          "book_id": 6177072,
+          "title": "Kabul Beauty School: An American Woman Goes Behind the Veil",
+          "author": "Deborah Rodriguez",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 6113404,
+          "title": "The Wizard Heir",
+          "author": "Cinda Williams Chima",
+          "distance": 0.4867,
+          "score": 0.01587
+        },
+        {
+          "rank": 6,
+          "book_id": 3063206,
+          "title": "David Goes to School",
+          "author": "David Shannon",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 257084,
+          "title": "Harry, a History: The True Story of a Boy Wizard, His Fans, and Life Inside the Harry Potter Phenomenon",
+          "author": "Melissa Anelli",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 8,
+          "book_id": 5682485,
+          "title": "Sourcery",
+          "author": "Terry Pratchett",
+          "distance": 0.493,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 3759376,
+          "title": "The Magicians",
+          "author": "Lev Grossman",
+          "distance": 0.4996,
+          "score": 0.01538
+        },
+        {
+          "rank": 10,
+          "book_id": 5443461,
+          "title": "Clothes, Clothes, Clothes. Music, Music, Music. Boys, Boys, Boys",
+          "author": "Viv Albertine",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q04",
+      "type": "plot",
+      "query": "teenagers are forced to fight to the death in a televised game",
+      "expected_count": 2,
+      "found": [
+        {
+          "title": "The Hunger Games",
+          "rank": 1
+        }
+      ],
+      "unresolved": [],
+      "recall": 0.5,
+      "reciprocal_rank": 1.0,
+      "first_rank": 1,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 5427627,
+          "title": "The Hunger Games",
+          "author": "Suzanne Collins",
+          "distance": 0.6577,
+          "score": 0.03055
+        },
+        {
+          "rank": 2,
+          "book_id": 2768016,
+          "title": "The Perfect Game",
+          "author": "J. Sterling",
+          "distance": 0.666,
+          "score": 0.02352
+        },
+        {
+          "rank": 3,
+          "book_id": 1523478,
+          "title": "Shut Out",
+          "author": "Kody Keplinger",
+          "distance": 0.5843,
+          "score": 0.01639
+        },
+        {
+          "rank": 4,
+          "book_id": 2471419,
+          "title": "Harry Potter And The Deathly Hallows: Book 7-- A Detailed Summary About This Book Of J.K. Rowling! And Much More!!",
+          "author": "The Summary Guy",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 5,
+          "book_id": 1128196,
+          "title": "UnDivided",
+          "author": "Neal Shusterman",
+          "distance": 0.6005,
+          "score": 0.01613
+        },
+        {
+          "rank": 6,
+          "book_id": 398806,
+          "title": "The Traitor's Game",
+          "author": "Jennifer A. Nielsen",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 7,
+          "book_id": 6087839,
+          "title": "The Boys, Volume 1: The Name of the Game",
+          "author": "Garth Ennis",
+          "distance": 0.6225,
+          "score": 0.01587
+        },
+        {
+          "rank": 8,
+          "book_id": 1799918,
+          "title": "Life After Life: The Investigation of a Phenomenon - Survival of Bodily Death",
+          "author": "Raymond A. Moody Jr.",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 9,
+          "book_id": 2668286,
+          "title": "The Quillan Games",
+          "author": "D.J. MacHale",
+          "distance": 0.6397,
+          "score": 0.01562
+        },
+        {
+          "rank": 10,
+          "book_id": 6160735,
+          "title": "The Enemy",
+          "author": "Charlie Higson",
+          "distance": 0.6489,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q05",
+      "type": "plot",
+      "query": "a totalitarian state where Big Brother watches everyone",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 356185,
+          "title": "Little Brother",
+          "author": "Cory Doctorow",
+          "distance": 0.6445,
+          "score": 0.02558
+        },
+        {
+          "rank": 2,
+          "book_id": 2401257,
+          "title": "Everybody Lies: Big Data, New Data, and What the Internet Can Tell Us About Who We Really Are",
+          "author": "Seth Stephens-Davidowitz",
+          "distance": 0.7003,
+          "score": 0.02021
+        },
+        {
+          "rank": 3,
+          "book_id": 1029994,
+          "title": "The Origin of Totalitarianism",
+          "author": "Hannah Arendt",
+          "distance": 0.5545,
+          "score": 0.01639
+        },
+        {
+          "rank": 4,
+          "book_id": 89308,
+          "title": "Big Brother",
+          "author": "Lionel Shriver",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 5,
+          "book_id": 1974823,
+          "title": "Nothing to Envy: Ordinary Lives in North Korea",
+          "author": "Barbara Demick",
+          "distance": 0.5666,
+          "score": 0.01613
+        },
+        {
+          "rank": 6,
+          "book_id": 3745702,
+          "title": "The Heavenly Man: The Remarkable True Story of Chinese Christian Brother Yun",
+          "author": "Brother Yun",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 7,
+          "book_id": 5113111,
+          "title": "Big Little Lies",
+          "author": "Liane Moriarty",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 8,
+          "book_id": 3699443,
+          "title": "1984",
+          "author": "Michael Dean",
+          "distance": 0.5757,
+          "score": 0.01587
+        },
+        {
+          "rank": 9,
+          "book_id": 5540561,
+          "title": "The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power",
+          "author": "Shoshana Zuboff",
+          "distance": 0.621,
+          "score": 0.01562
+        },
+        {
+          "rank": 10,
+          "book_id": 855548,
+          "title": "The Tipping Point: How Little Things Can Make a Big Difference",
+          "author": "Malcolm Gladwell",
+          "distance": null,
+          "score": 0.01562
+        }
+      ]
+    },
+    {
+      "id": "q06",
+      "type": "plot",
+      "query": "a girl in the American South whose father defends a Black man accused of a crime he did not commit",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 4364603,
+          "title": "Born a Crime: Stories From a South African Childhood",
+          "author": "Trevor Noah",
+          "distance": 0.5186,
+          "score": 0.03227
+        },
+        {
+          "rank": 2,
+          "book_id": 4279876,
+          "title": "Coming of Age in Mississippi: The Classic Autobiography of a Young Black Girl in the Rural South",
+          "author": "Anne Moody",
+          "distance": 0.5954,
+          "score": 0.02715
+        },
+        {
+          "rank": 3,
+          "book_id": 5463609,
+          "title": "Y: The Last Man, Vol. 6: Girl on Girl",
+          "author": "Brian K. Vaughan",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 4,
+          "book_id": 4261992,
+          "title": "Ghettoside: A True Story of Murder in America",
+          "author": "Jill Leovy",
+          "distance": 0.5366,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 463370,
+          "title": "Daddy's Girl",
+          "author": "Lisa Scottoline",
+          "distance": 0.5438,
+          "score": 0.01587
+        },
+        {
+          "rank": 6,
+          "book_id": 897303,
+          "title": "A Man in Full",
+          "author": "Tom Wolfe",
+          "distance": 0.5446,
+          "score": 0.01562
+        },
+        {
+          "rank": 7,
+          "book_id": 6258796,
+          "title": "The Color of Water: A Black Man's Tribute to His White Mother",
+          "author": "James   McBride",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 8,
+          "book_id": 92783,
+          "title": "Blood Defense",
+          "author": "Marcia Clark",
+          "distance": 0.5487,
+          "score": 0.01538
+        },
+        {
+          "rank": 9,
+          "book_id": 960039,
+          "title": "All-American Girl",
+          "author": "Meg Cabot",
+          "distance": null,
+          "score": 0.01538
+        },
+        {
+          "rank": 10,
+          "book_id": 3943616,
+          "title": "The Help",
+          "author": "Kathryn Stockett",
+          "distance": 0.5497,
+          "score": 0.01515
+        }
+      ]
+    },
+    {
+      "id": "q07",
+      "type": "plot",
+      "query": "a hobbit travels with dwarves to take back their treasure from a dragon",
+      "expected_count": 1,
+      "found": [
+        {
+          "title": "The Hobbit",
+          "rank": 1
+        }
+      ],
+      "unresolved": [],
+      "recall": 1.0,
+      "reciprocal_rank": 1.0,
+      "first_rank": 1,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 5505232,
+          "title": "The Hobbit, Mr Baggins and the Return to Bag-End: Boxed Set",
+          "author": "J.R.R. Tolkien",
+          "distance": 0.5732,
+          "score": 0.02924
+        },
+        {
+          "rank": 2,
+          "book_id": 1299760,
+          "title": "The Hobbit",
+          "author": "Chuck Dixon",
+          "distance": 0.4391,
+          "score": 0.02903
+        },
+        {
+          "rank": 3,
+          "book_id": 1371735,
+          "title": "J.R.R. Tolkien 4-Book Boxed Set: The Hobbit and The Lord of the Rings",
+          "author": "J.R.R. Tolkien",
+          "distance": 0.4383,
+          "score": 0.02895
+        },
+        {
+          "rank": 4,
+          "book_id": 4872114,
+          "title": "The History of the Hobbit, Part One: Mr. Baggins",
+          "author": "J.R.R. Tolkien",
+          "distance": 0.5838,
+          "score": 0.02538
+        },
+        {
+          "rank": 5,
+          "book_id": 3639219,
+          "title": "A Dance with Dragons",
+          "author": "George R.R. Martin",
+          "distance": 0.6294,
+          "score": 0.02449
+        },
+        {
+          "rank": 6,
+          "book_id": 2929003,
+          "title": "Dragon Rider",
+          "author": "Cornelia Funke",
+          "distance": 0.6005,
+          "score": 0.02333
+        },
+        {
+          "rank": 7,
+          "book_id": 5411721,
+          "title": "Secrets of the Dragon Sanctuary",
+          "author": "Brandon Mull",
+          "distance": 0.6169,
+          "score": 0.02222
+        },
+        {
+          "rank": 8,
+          "book_id": 3890314,
+          "title": "Dragon Bound",
+          "author": "Thea Harrison",
+          "distance": 0.6446,
+          "score": 0.01852
+        },
+        {
+          "rank": 9,
+          "book_id": 3512414,
+          "title": "The Hobbit: An Unexpected Journey - Visual Companion",
+          "author": "Jude Fisher",
+          "distance": 0.4244,
+          "score": 0.01639
+        },
+        {
+          "rank": 10,
+          "book_id": 5934736,
+          "title": "Radical: Taking Back Your Faith from the American Dream",
+          "author": "David     Platt",
+          "distance": null,
+          "score": 0.01639
+        }
+      ]
+    },
+    {
+      "id": "q08",
+      "type": "plot",
+      "query": "a woman disappears on her wedding anniversary and her husband becomes the main suspect",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 3118468,
+          "title": "When You Disappeared",
+          "author": "John Marrs",
+          "distance": 0.5707,
+          "score": 0.02493
+        },
+        {
+          "rank": 2,
+          "book_id": 5610812,
+          "title": "It's Always the Husband",
+          "author": "Michele Campbell",
+          "distance": 0.6186,
+          "score": 0.02028
+        },
+        {
+          "rank": 3,
+          "book_id": 4400437,
+          "title": "Walk Into Silence",
+          "author": "Susan    McBride",
+          "distance": 0.5497,
+          "score": 0.01639
+        },
+        {
+          "rank": 4,
+          "book_id": 1642115,
+          "title": "The Seven Husbands of Evelyn Hugo",
+          "author": "Taylor Jenkins Reid",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 5,
+          "book_id": 3779402,
+          "title": "The Silent Wife",
+          "author": "A.S.A. Harrison",
+          "distance": 0.5512,
+          "score": 0.01613
+        },
+        {
+          "rank": 6,
+          "book_id": 1402968,
+          "title": "The Woman in the Window",
+          "author": "A.J. Finn",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 7,
+          "book_id": 5415849,
+          "title": "When Breath Becomes Air",
+          "author": "Paul Kalanithi",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 8,
+          "book_id": 4006537,
+          "title": "A Separation",
+          "author": "Katie Kitamura",
+          "distance": 0.5621,
+          "score": 0.01587
+        },
+        {
+          "rank": 9,
+          "book_id": 3126451,
+          "title": "Stay Close",
+          "author": "Harlan Coben",
+          "distance": 0.5634,
+          "score": 0.01562
+        },
+        {
+          "rank": 10,
+          "book_id": 6055545,
+          "title": "The Husband's Secret",
+          "author": "Liane Moriarty",
+          "distance": null,
+          "score": 0.01562
+        }
+      ]
+    },
+    {
+      "id": "q09",
+      "type": "plot",
+      "query": "a scientist creates a living creature from parts of dead bodies",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 3913451,
+          "title": "Death's Acre: Inside the Legendary Forensic Lab the Body Farm Where the Dead Do Tell Tales",
+          "author": "William M. Bass",
+          "distance": 0.4301,
+          "score": 0.03089
+        },
+        {
+          "rank": 2,
+          "book_id": 5612418,
+          "title": "Stiff: The Curious Lives of Human Cadavers",
+          "author": "Mary Roach",
+          "distance": 0.5206,
+          "score": 0.02591
+        },
+        {
+          "rank": 3,
+          "book_id": 1932452,
+          "title": "Living Dead in Dallas",
+          "author": "Charlaine Harris",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 4,
+          "book_id": 741610,
+          "title": "Carved in Bone",
+          "author": "Jefferson Bass",
+          "distance": 0.4532,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 4993659,
+          "title": "The Zombie Survival Guide: Complete Protection from the Living Dead",
+          "author": "Max Brooks",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 6,
+          "book_id": 2115755,
+          "title": "The $100 Startup: Reinvent the Way You Make a Living, Do What You Love, and Create a New Future",
+          "author": "Chris Guillebeau",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 4310258,
+          "title": "Skin Deep",
+          "author": "Brandon Sanderson",
+          "distance": 0.4889,
+          "score": 0.01587
+        },
+        {
+          "rank": 8,
+          "book_id": 4548496,
+          "title": "The Body Farm",
+          "author": "Patricia Cornwell",
+          "distance": 0.5018,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 3943939,
+          "title": "Living Dead Girl",
+          "author": "Elizabeth Scott",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 10,
+          "book_id": 4776767,
+          "title": "Living with the Dead",
+          "author": "Kelley Armstrong",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "type": "plot",
+      "query": "a ship captain is obsessed with hunting a white whale",
+      "expected_count": 1,
+      "found": [
+        {
+          "title": "Moby",
+          "rank": 1
+        }
+      ],
+      "unresolved": [],
+      "recall": 1.0,
+      "reciprocal_rank": 1.0,
+      "first_rank": 1,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 4609451,
+          "title": "Moby-Dick or, The Whale",
+          "author": "Herman Melville",
+          "distance": 0.4795,
+          "score": 0.03227
+        },
+        {
+          "rank": 2,
+          "book_id": 4378133,
+          "title": "Pirate Hunters: Treasure, Obsession, and the Search for a Legendary Pirate Ship",
+          "author": "Robert Kurson",
+          "distance": 0.5891,
+          "score": 0.03132
+        },
+        {
+          "rank": 3,
+          "book_id": 2742738,
+          "title": "Ship Breaker",
+          "author": "Paolo Bacigalupi",
+          "distance": 0.6337,
+          "score": 0.02175
+        },
+        {
+          "rank": 4,
+          "book_id": 1218551,
+          "title": "In the Heart of the Sea: The Tragedy of the Whaleship Essex",
+          "author": "Nathaniel Philbrick",
+          "distance": 0.5011,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 5665533,
+          "title": "The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America",
+          "author": "Erik Larson",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 6,
+          "book_id": 3162249,
+          "title": "Fluke: Or, I Know Why the Winged Whale Sings",
+          "author": "Christopher Moore",
+          "distance": 0.5239,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 4806513,
+          "title": "Two Years Before the Mast: A Sailor's Life at Sea",
+          "author": "Richard Henry Dana Jr.",
+          "distance": 0.5514,
+          "score": 0.01562
+        },
+        {
+          "rank": 8,
+          "book_id": 4928064,
+          "title": "The Hunt for Red October",
+          "author": "Tom Clancy",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 1798821,
+          "title": "One Piece, Volume 3: Don't Get Fooled Again",
+          "author": "Eiichiro Oda",
+          "distance": 0.5798,
+          "score": 0.01538
+        },
+        {
+          "rank": 10,
+          "book_id": 68852,
+          "title": "White Oleander",
+          "author": "Janet Fitch",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "type": "plot",
+      "query": "a woman who survived the murder of her family as a child looks into the crime again decades later",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 234748,
+          "title": "In the Clearing",
+          "author": "Robert Dugoni",
+          "distance": 0.4284,
+          "score": 0.01639
+        },
+        {
+          "rank": 2,
+          "book_id": 6197023,
+          "title": "The Nazi Officer's Wife: How One Jewish Woman Survived the Holocaust",
+          "author": "Edith Hahn Beer",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 732550,
+          "title": "The Girl I Used to Be",
+          "author": "April Henry",
+          "distance": 0.4439,
+          "score": 0.01613
+        },
+        {
+          "rank": 4,
+          "book_id": 501102,
+          "title": "The Dressmaker of Khair Khana: Five Sisters, One Remarkable Family, and the Woman Who Risked Everything to Keep Them Safe",
+          "author": "Gayle Tzemach Lemmon",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 4032457,
+          "title": "North of Normal: A Memoir of My Wilderness Childhood, My Unusual Family, and How I Survived Both",
+          "author": "Cea Sunrise Person",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 6,
+          "book_id": 447539,
+          "title": "Kill Me Again",
+          "author": "Rachel Abbott",
+          "distance": 0.4507,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 4371071,
+          "title": "The Forgotten Girls",
+          "author": "Sara Blaedel",
+          "distance": 0.4525,
+          "score": 0.01562
+        },
+        {
+          "rank": 8,
+          "book_id": 746386,
+          "title": "The Family Romanov: Murder, Rebellion, and the Fall of Imperial Russia",
+          "author": "Candace Fleming",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 1788460,
+          "title": "Murder on Astor Place",
+          "author": "Victoria Thompson",
+          "distance": 0.4527,
+          "score": 0.01538
+        },
+        {
+          "rank": 10,
+          "book_id": 1151243,
+          "title": "Forty Autumns: A Family's Story of Courage and Survival on Both Sides of the Berlin Wall",
+          "author": "Nina Willner",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "type": "mood",
+      "query": "hopeful, character-driven science fiction about a found family on a spaceship",
+      "expected_count": 1,
+      "found": [
+        {
+          "title": "The Long Way to a Small, Angry Planet",
+          "rank": 6
+        }
+      ],
+      "unresolved": [],
+      "recall": 1.0,
+      "reciprocal_rank": 0.16666666666666666,
+      "first_rank": 6,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 2893453,
+          "title": "The Family Next Door",
+          "author": "Sally Hepworth",
+          "distance": 0.5628,
+          "score": 0.02431
+        },
+        {
+          "rank": 2,
+          "book_id": 3153466,
+          "title": "A Street Cat Named Bob: How One Man and His Cat Found Hope on the Streets",
+          "author": "James Bowen",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 1419432,
+          "title": "Orphans of the Sky",
+          "author": "Robert A. Heinlein",
+          "distance": 0.4756,
+          "score": 0.01639
+        },
+        {
+          "rank": 4,
+          "book_id": 6074999,
+          "title": "Record of a Spaceborn Few",
+          "author": "Becky  Chambers",
+          "distance": 0.482,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 3742174,
+          "title": "How to Live Safely in a Science Fictional Universe",
+          "author": "Charles Yu",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 6,
+          "book_id": 6158499,
+          "title": "The Long Way to a Small, Angry Planet",
+          "author": "Becky  Chambers",
+          "distance": 0.504,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 552279,
+          "title": "Barefoot Contessa Family Style: Easy Ideas and Recipes That Make Everyone Feel Like Family",
+          "author": "Ina Garten",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 8,
+          "book_id": 3757069,
+          "title": "Fluency",
+          "author": "Jennifer Foehner Wells",
+          "distance": 0.5129,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 4689644,
+          "title": "The 7 Habits of Highly Effective Families: Creating a Nurturing Family in a Turbulent World",
+          "author": "Stephen R. Covey",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 10,
+          "book_id": 4847809,
+          "title": "All Families are Psychotic",
+          "author": "Douglas Coupland",
+          "distance": 0.5286,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "type": "mood",
+      "query": "dark academia about a group of classics students who commit a murder",
+      "expected_count": 1,
+      "found": [
+        {
+          "title": "The Secret History",
+          "rank": 7
+        }
+      ],
+      "unresolved": [],
+      "recall": 1.0,
+      "reciprocal_rank": 0.14285714285714285,
+      "first_rank": 7,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 341095,
+          "title": "Dark Night of the Soul",
+          "author": "John of the Cross",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 2,
+          "book_id": 60354,
+          "title": "3rd Degree",
+          "author": "James Patterson",
+          "distance": 0.4185,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 4064813,
+          "title": "Deadly Class, Volume 1: Reagan Youth",
+          "author": "Rick Remender",
+          "distance": 0.4214,
+          "score": 0.01613
+        },
+        {
+          "rank": 4,
+          "book_id": 6041344,
+          "title": "Dark Tide I: Onslaught",
+          "author": "Michael A. Stackpole",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 3787952,
+          "title": "Killing November",
+          "author": "Adriana Mather",
+          "distance": 0.4279,
+          "score": 0.01587
+        },
+        {
+          "rank": 6,
+          "book_id": 544635,
+          "title": "Dark Tide II: Ruin",
+          "author": "Michael A. Stackpole",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 2481667,
+          "title": "The Secret History",
+          "author": "Donna Tartt",
+          "distance": 0.4487,
+          "score": 0.01562
+        },
+        {
+          "rank": 8,
+          "book_id": 2946453,
+          "title": "In a Dark, Dark Wood",
+          "author": "Ruth Ware",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 295059,
+          "title": "The Midnight Club",
+          "author": "Christopher Pike",
+          "distance": 0.4648,
+          "score": 0.01538
+        },
+        {
+          "rank": 10,
+          "book_id": 733623,
+          "title": "On the Edge of the Dark Sea of Darkness",
+          "author": "Andrew       Peterson",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "type": "mood",
+      "query": "a heartbreaking story about friendship, betrayal and guilt in Afghanistan",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 4728356,
+          "title": "Hateship, Friendship, Courtship, Loveship, Marriage: Stories",
+          "author": "Alice Munro",
+          "distance": 0.5427,
+          "score": 0.02861
+        },
+        {
+          "rank": 2,
+          "book_id": 1459947,
+          "title": "The Little Coffee Shop of Kabul",
+          "author": "Deborah Rodriguez",
+          "distance": 0.4281,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 1806862,
+          "title": "Hatching Twitter: A True Story of Money, Power, Friendship, and Betrayal",
+          "author": "Nick Bilton",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 4,
+          "book_id": 5869657,
+          "title": "Swallows of Kabul",
+          "author": "Yasmina Khadra",
+          "distance": 0.452,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 2614212,
+          "title": "What She Left Behind: A Haunting and Heartbreaking Story of 1920s Historical Fiction",
+          "author": "Ellen Marie Wiseman",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 6,
+          "book_id": 1321267,
+          "title": "Zinky Boys: Soviet Voices from the Afghanistan War",
+          "author": "Svetlana Alexievich",
+          "distance": 0.4576,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 4837223,
+          "title": "Marching Powder: A True Story of Friendship, Cocaine, and South America's Strangest Jail",
+          "author": "Rusty Young",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 8,
+          "book_id": 657614,
+          "title": "The Breadwinner",
+          "author": "Deborah Ellis",
+          "distance": 0.4741,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 4462562,
+          "title": "And the Mountains Echoed",
+          "author": "Khaled Hosseini",
+          "distance": 0.4953,
+          "score": 0.01538
+        },
+        {
+          "rank": 10,
+          "book_id": 5215933,
+          "title": "Agent Zigzag: A True Story of Nazi Espionage, Love, and Betrayal",
+          "author": "Ben Macintyre",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "type": "mood",
+      "query": "epic fantasy with a hard magic system where people burn metals for powers",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 1607336,
+          "title": "Magic Burns",
+          "author": "Ilona Andrews",
+          "distance": 0.5179,
+          "score": 0.03062
+        },
+        {
+          "rank": 2,
+          "book_id": 5418205,
+          "title": "Soulsmith",
+          "author": "Will Wight",
+          "distance": 0.4345,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 1860828,
+          "title": "The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change",
+          "author": "Stephen R. Covey",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 4,
+          "book_id": 6380073,
+          "title": "The Burning Sky",
+          "author": "Sherry Thomas",
+          "distance": 0.4724,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 3309605,
+          "title": "The Crystal City",
+          "author": "Orson Scott Card",
+          "distance": 0.5046,
+          "score": 0.01587
+        },
+        {
+          "rank": 6,
+          "book_id": 6212704,
+          "title": "The Life-Changing Magic of Not Giving a F*ck: How to Stop Spending Time You Don't Have with People You Don't Like Doing Things You Don't Want to Do",
+          "author": "Sarah Knight",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 2897445,
+          "title": "13 Things Mentally Strong People Don't Do: Take Back Your Power, Embrace Change, Face Your Fears, and Train Your Brain for Happiness and Success",
+          "author": "Amy Morin",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 8,
+          "book_id": 5946067,
+          "title": "Kindred Spirits",
+          "author": "Mark Anthony",
+          "distance": 0.5091,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 5842908,
+          "title": "Magician: Master",
+          "author": "Raymond E. Feist",
+          "distance": 0.5098,
+          "score": 0.01538
+        },
+        {
+          "rank": 10,
+          "book_id": 3340445,
+          "title": "Hard Magic",
+          "author": "Larry Correia",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "type": "mood",
+      "query": "a feel-good story about a grumpy old man whose life is changed by his new neighbours",
+      "expected_count": 1,
+      "found": [
+        {
+          "title": "A Man Called Ove",
+          "rank": 4
+        }
+      ],
+      "unresolved": [],
+      "recall": 1.0,
+      "reciprocal_rank": 0.25,
+      "first_rank": 4,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 5265248,
+          "title": "The 100-Year-Old Man Who Climbed Out the Window and Disappeared",
+          "author": "Jonas Jonasson",
+          "distance": 0.5489,
+          "score": 0.02983
+        },
+        {
+          "rank": 2,
+          "book_id": 1023093,
+          "title": "Notes of a Dirty Old Man",
+          "author": "Charles Bukowski",
+          "distance": 0.5824,
+          "score": 0.02181
+        },
+        {
+          "rank": 3,
+          "book_id": 269796,
+          "title": "Many Lives, Many Masters: The True Story of a Prominent Psychiatrist, His Young Patient, and the Past Life Therapy That Changed Both Their Lives",
+          "author": "Brian L. Weiss",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 4,
+          "book_id": 4903803,
+          "title": "A Man Called Ove",
+          "author": "Fredrik Backman",
+          "distance": 0.5026,
+          "score": 0.01639
+        },
+        {
+          "rank": 5,
+          "book_id": 5502740,
+          "title": "A Good Man Is Hard to Find and Other Stories",
+          "author": "Flannery O'Connor",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 6,
+          "book_id": 959765,
+          "title": "Feeling Good: The New Mood Therapy",
+          "author": "David D. Burns",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 5380645,
+          "title": "The Lonely Londoners",
+          "author": "Sam Selvon",
+          "distance": 0.5528,
+          "score": 0.01587
+        },
+        {
+          "rank": 8,
+          "book_id": 4096037,
+          "title": "No Country for Old Men",
+          "author": "Cormac McCarthy",
+          "distance": 0.5598,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 5216182,
+          "title": "The Old Man Who Read Love Stories",
+          "author": "Luis Sep\u00falveda",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 10,
+          "book_id": 139420,
+          "title": "A Fine Balance",
+          "author": "Rohinton Mistry",
+          "distance": 0.5607,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "type": "similar_to",
+      "query": "books like The Martian",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 2782063,
+          "title": "Harry Potter Boxed Set, Books 1-5",
+          "author": "J.K. Rowling",
+          "distance": 0.5886,
+          "score": 0.02191
+        },
+        {
+          "rank": 2,
+          "book_id": 2471419,
+          "title": "Harry Potter And The Deathly Hallows: Book 7-- A Detailed Summary About This Book Of J.K. Rowling! And Much More!!",
+          "author": "The Summary Guy",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 5228524,
+          "title": "The Warlord of Mars",
+          "author": "Edgar Rice Burroughs",
+          "distance": 0.4229,
+          "score": 0.01639
+        },
+        {
+          "rank": 4,
+          "book_id": 4515347,
+          "title": "Reading Like a Writer: A Guide for People Who Love Books and for Those Who Want to Write Them",
+          "author": "Francine Prose",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 946439,
+          "title": "A Princess of Mars",
+          "author": "Edgar Rice Burroughs",
+          "distance": 0.4394,
+          "score": 0.01613
+        },
+        {
+          "rank": 6,
+          "book_id": 3356093,
+          "title": "Out of the Silent Planet",
+          "author": "C.S. Lewis",
+          "distance": 0.4487,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 4242868,
+          "title": "As You Like It",
+          "author": "Macaw Books",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 8,
+          "book_id": 5393776,
+          "title": "Red Mars",
+          "author": "Kim Stanley Robinson",
+          "distance": 0.4494,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 1993594,
+          "title": "Book of Mormon, Doctrine and Covenants, Pearl of Great Price",
+          "author": "The Church of Jesus Christ of Latter-day Saints",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 10,
+          "book_id": 2748439,
+          "title": "Red Planet",
+          "author": "Robert A. Heinlein",
+          "distance": 0.4595,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "type": "similar_to",
+      "query": "books like Gone Girl",
+      "expected_count": 2,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 2123403,
+          "title": "Gone, Baby, Gone",
+          "author": "Dennis Lehane",
+          "distance": 0.4751,
+          "score": 0.02986
+        },
+        {
+          "rank": 2,
+          "book_id": 5763704,
+          "title": "Gone with the Wind",
+          "author": "Margaret Mitchell",
+          "distance": 0.4846,
+          "score": 0.02769
+        },
+        {
+          "rank": 3,
+          "book_id": 4307706,
+          "title": "Gone",
+          "author": "Michael  Grant",
+          "distance": 0.4926,
+          "score": 0.0242
+        },
+        {
+          "rank": 4,
+          "book_id": 1920093,
+          "title": "Pretty Girls",
+          "author": "Karin Slaughter",
+          "distance": 0.5136,
+          "score": 0.02353
+        },
+        {
+          "rank": 5,
+          "book_id": 6059718,
+          "title": "All the Missing Girls",
+          "author": "Megan Miranda",
+          "distance": 0.5175,
+          "score": 0.02153
+        },
+        {
+          "rank": 6,
+          "book_id": 4593260,
+          "title": "The Girl You Left Behind",
+          "author": "Jojo Moyes",
+          "distance": 0.5295,
+          "score": 0.01924
+        },
+        {
+          "rank": 7,
+          "book_id": 6128896,
+          "title": "After Anna",
+          "author": "Alex Lake",
+          "distance": 0.4436,
+          "score": 0.01639
+        },
+        {
+          "rank": 8,
+          "book_id": 4242868,
+          "title": "As You Like It",
+          "author": "Macaw Books",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 9,
+          "book_id": 4456152,
+          "title": "Gone",
+          "author": "Lisa McMann",
+          "distance": 0.4527,
+          "score": 0.01613
+        },
+        {
+          "rank": 10,
+          "book_id": 2757325,
+          "title": "A Girl Like You",
+          "author": "Gemma Burgess",
+          "distance": null,
+          "score": 0.01613
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "type": "similar_to",
+      "query": "books like The Hunger Games",
+      "expected_count": 2,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 34587,
+          "title": "The Hunger Games: Official Illustrated Movie Companion",
+          "author": "Kate Egan",
+          "distance": 0.3455,
+          "score": 0.03175
+        },
+        {
+          "rank": 2,
+          "book_id": 5427627,
+          "title": "The Hunger Games",
+          "author": "Suzanne Collins",
+          "distance": 0.4089,
+          "score": 0.03175
+        },
+        {
+          "rank": 3,
+          "book_id": 3469018,
+          "title": "The Hunger Games Trilogy Boxset",
+          "author": "Suzanne Collins",
+          "distance": 0.3766,
+          "score": 0.03175
+        },
+        {
+          "rank": 4,
+          "book_id": 3887326,
+          "title": "The World of the Hunger Games",
+          "author": "Kate Egan",
+          "distance": 0.3224,
+          "score": 0.0311
+        },
+        {
+          "rank": 5,
+          "book_id": 1928732,
+          "title": "The Hunger Games Tribute Guide",
+          "author": "Emily Seife",
+          "distance": 0.4115,
+          "score": 0.03077
+        },
+        {
+          "rank": 6,
+          "book_id": 2046010,
+          "title": "The Hunger Pains: A Parody",
+          "author": "The Harvard Lampoon",
+          "distance": 0.4792,
+          "score": 0.02819
+        },
+        {
+          "rank": 7,
+          "book_id": 260486,
+          "title": "The Westing Game",
+          "author": "Ellen Raskin",
+          "distance": 0.5737,
+          "score": 0.02215
+        },
+        {
+          "rank": 8,
+          "book_id": 2471419,
+          "title": "Harry Potter And The Deathly Hallows: Book 7-- A Detailed Summary About This Book Of J.K. Rowling! And Much More!!",
+          "author": "The Summary Guy",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 9,
+          "book_id": 3442380,
+          "title": "Catching Fire",
+          "author": "Suzanne Collins",
+          "distance": 0.4196,
+          "score": 0.01515
+        },
+        {
+          "rank": 10,
+          "book_id": 4894816,
+          "title": "A Hunger Like No Other",
+          "author": "Kresley Cole",
+          "distance": null,
+          "score": 0.01515
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "type": "similar_to",
+      "query": "books like Harry Potter but for adults",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 2782063,
+          "title": "Harry Potter Boxed Set, Books 1-5",
+          "author": "J.K. Rowling",
+          "distance": 0.4249,
+          "score": 0.03226
+        },
+        {
+          "rank": 2,
+          "book_id": 4784784,
+          "title": "Harry Potter: A Pop-Up Book",
+          "author": "Lucy Kee",
+          "distance": 0.4964,
+          "score": 0.0308
+        },
+        {
+          "rank": 3,
+          "book_id": 257084,
+          "title": "Harry, a History: The True Story of a Boy Wizard, His Fans, and Life Inside the Harry Potter Phenomenon",
+          "author": "Melissa Anelli",
+          "distance": 0.4994,
+          "score": 0.02986
+        },
+        {
+          "rank": 4,
+          "book_id": 5500645,
+          "title": "Harry Potter Series Box Set",
+          "author": "J.K. Rowling",
+          "distance": 0.4353,
+          "score": 0.02921
+        },
+        {
+          "rank": 5,
+          "book_id": 5606357,
+          "title": "The Harry Potter Collection 1-4",
+          "author": "J.K. Rowling",
+          "distance": 0.4039,
+          "score": 0.02905
+        },
+        {
+          "rank": 6,
+          "book_id": 418397,
+          "title": "Harry Potter And The Order Of Phoenix: Book 5 --- A Summary About This Novel Of J.K Rowling!!",
+          "author": "The Summary Guy",
+          "distance": 0.5225,
+          "score": 0.02788
+        },
+        {
+          "rank": 7,
+          "book_id": 6356027,
+          "title": "Harry Potter Collection",
+          "author": "J.K. Rowling",
+          "distance": 0.4368,
+          "score": 0.02767
+        },
+        {
+          "rank": 8,
+          "book_id": 4227574,
+          "title": "Harry Potter and the Goblet of Fire",
+          "author": "J.K. Rowling",
+          "distance": 0.5224,
+          "score": 0.02674
+        },
+        {
+          "rank": 9,
+          "book_id": 667931,
+          "title": "Harry Potter Schoolbooks Box Set: Quidditch Through the Ages and Fantastic Beasts & Where to Find Them",
+          "author": "J.K. Rowling",
+          "distance": 0.4898,
+          "score": 0.02639
+        },
+        {
+          "rank": 10,
+          "book_id": 5379484,
+          "title": "Harry Potter and the Order of the Phoenix",
+          "author": "J.K. Rowling",
+          "distance": 0.5229,
+          "score": 0.02623
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "type": "lookup",
+      "query": "Dune by Frank Herbert",
+      "expected_count": 1,
+      "found": [
+        {
+          "title": "Dune",
+          "rank": 3
+        }
+      ],
+      "unresolved": [],
+      "recall": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "first_rank": 3,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 5535811,
+          "title": "The Great Dune Trilogy",
+          "author": "Frank Herbert",
+          "distance": 0.2916,
+          "score": 0.03132
+        },
+        {
+          "rank": 2,
+          "book_id": 240816,
+          "title": "Chapterhouse: Dune",
+          "author": "Frank Herbert",
+          "distance": 0.3138,
+          "score": 0.03128
+        },
+        {
+          "rank": 3,
+          "book_id": 2752401,
+          "title": "Dune",
+          "author": "Frank Herbert",
+          "distance": 0.4208,
+          "score": 0.03028
+        },
+        {
+          "rank": 4,
+          "book_id": 147091,
+          "title": "Sandworms of Dune",
+          "author": "Brian Herbert",
+          "distance": 0.3378,
+          "score": 0.02996
+        },
+        {
+          "rank": 5,
+          "book_id": 4262352,
+          "title": "God Emperor of Dune",
+          "author": "Frank Herbert",
+          "distance": 0.4165,
+          "score": 0.02991
+        },
+        {
+          "rank": 6,
+          "book_id": 4065094,
+          "title": "Dune Messiah",
+          "author": "Frank Herbert",
+          "distance": 0.4269,
+          "score": 0.02983
+        },
+        {
+          "rank": 7,
+          "book_id": 1944426,
+          "title": "Hunters of Dune",
+          "author": "Brian Herbert",
+          "distance": 0.3796,
+          "score": 0.02964
+        },
+        {
+          "rank": 8,
+          "book_id": 959168,
+          "title": "Children of Dune",
+          "author": "Frank Herbert",
+          "distance": 0.4459,
+          "score": 0.02921
+        },
+        {
+          "rank": 9,
+          "book_id": 2323209,
+          "title": "Heretics of Dune",
+          "author": "Frank Herbert",
+          "distance": 0.4438,
+          "score": 0.0289
+        },
+        {
+          "rank": 10,
+          "book_id": 2200806,
+          "title": "The Woman in the Dunes",
+          "author": "K\u014db\u014d Abe",
+          "distance": 0.5217,
+          "score": 0.02582
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "type": "lookup",
+      "query": "Pride and Prejudice",
+      "expected_count": 1,
+      "found": [
+        {
+          "title": "Pride and Prejudice",
+          "rank": 1
+        }
+      ],
+      "unresolved": [],
+      "recall": 1.0,
+      "reciprocal_rank": 1.0,
+      "first_rank": 1,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 4563691,
+          "title": "Pride and Prejudice",
+          "author": "Jane Austen",
+          "distance": 0.4386,
+          "score": 0.03252
+        },
+        {
+          "rank": 2,
+          "book_id": 3164897,
+          "title": "Pride and Prejudice",
+          "author": "Jane Austen",
+          "distance": 0.4398,
+          "score": 0.032
+        },
+        {
+          "rank": 3,
+          "book_id": 3463576,
+          "title": "Pride",
+          "author": "Ibi Zoboi",
+          "distance": 0.4325,
+          "score": 0.03154
+        },
+        {
+          "rank": 4,
+          "book_id": 3140648,
+          "title": "Pride and Prejudice and Zombies",
+          "author": "Seth Grahame-Smith",
+          "distance": 0.4687,
+          "score": 0.03126
+        },
+        {
+          "rank": 5,
+          "book_id": 698167,
+          "title": "Eligible: A Modern Retelling of Pride & Prejudice",
+          "author": "Curtis Sittenfeld",
+          "distance": 0.4895,
+          "score": 0.03078
+        },
+        {
+          "rank": 6,
+          "book_id": 2052106,
+          "title": "Mr. Darcy Takes a Wife: Pride and Prejudice Continues",
+          "author": "Linda Berdoll",
+          "distance": 0.501,
+          "score": 0.03031
+        },
+        {
+          "rank": 7,
+          "book_id": 3150433,
+          "title": "Pride of Baghdad",
+          "author": "Brian K. Vaughan",
+          "distance": 0.5423,
+          "score": 0.02899
+        },
+        {
+          "rank": 8,
+          "book_id": 2670926,
+          "title": "Pride Mates",
+          "author": "Jennifer Ashley",
+          "distance": 0.5499,
+          "score": 0.02798
+        },
+        {
+          "rank": 9,
+          "book_id": 3833385,
+          "title": "The Pride of Jared MacKade",
+          "author": "Nora Roberts",
+          "distance": 0.5826,
+          "score": 0.02552
+        },
+        {
+          "rank": 10,
+          "book_id": 5518222,
+          "title": "Runaways, Vol. 1: Pride and Joy",
+          "author": "Brian K. Vaughan",
+          "distance": 0.5949,
+          "score": 0.02513
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "type": "lookup",
+      "query": "Stephen King The Shining",
+      "expected_count": 1,
+      "found": [
+        {
+          "title": "The Shining",
+          "rank": 1
+        }
+      ],
+      "unresolved": [],
+      "recall": 1.0,
+      "reciprocal_rank": 1.0,
+      "first_rank": 1,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 1935672,
+          "title": "The Shining",
+          "author": "Stephen King",
+          "distance": 0.3321,
+          "score": 0.03252
+        },
+        {
+          "rank": 2,
+          "book_id": 2879832,
+          "title": "Carrie / 'Salem's Lot / The Shining",
+          "author": "Stephen King",
+          "distance": 0.284,
+          "score": 0.03252
+        },
+        {
+          "rank": 3,
+          "book_id": 5806116,
+          "title": "Stephen King's N.",
+          "author": "Marc Guggenheim",
+          "distance": 0.4613,
+          "score": 0.02991
+        },
+        {
+          "rank": 4,
+          "book_id": 618965,
+          "title": "The Stand",
+          "author": "Stephen King",
+          "distance": 0.455,
+          "score": 0.02941
+        },
+        {
+          "rank": 5,
+          "book_id": 5021718,
+          "title": "The Drawing of the Three",
+          "author": "Stephen King",
+          "distance": 0.3604,
+          "score": 0.02837
+        },
+        {
+          "rank": 6,
+          "book_id": 1421345,
+          "title": "Doctor Sleep",
+          "author": "Stephen King",
+          "distance": 0.3726,
+          "score": 0.02797
+        },
+        {
+          "rank": 7,
+          "book_id": 6133221,
+          "title": "Night Shift",
+          "author": "Stephen King",
+          "distance": 0.4513,
+          "score": 0.02579
+        },
+        {
+          "rank": 8,
+          "book_id": 3294254,
+          "title": "The Gunslinger",
+          "author": "Stephen King",
+          "distance": 0.5127,
+          "score": 0.02558
+        },
+        {
+          "rank": 9,
+          "book_id": 4600161,
+          "title": "Under the Dome",
+          "author": "Stephen King",
+          "distance": 0.4965,
+          "score": 0.02549
+        },
+        {
+          "rank": 10,
+          "book_id": 1152969,
+          "title": "It",
+          "author": "Stephen King",
+          "distance": 0.5369,
+          "score": 0.02463
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "type": "lookup",
+      "query": "Sapiens",
+      "expected_count": 1,
+      "found": [
+        {
+          "title": "Sapiens",
+          "rank": 1
+        }
+      ],
+      "unresolved": [],
+      "recall": 1.0,
+      "reciprocal_rank": 1.0,
+      "first_rank": 1,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 4852340,
+          "title": "Sapiens: A Brief History of Humankind",
+          "author": "Yuval Noah Harari",
+          "distance": 0.4601,
+          "score": 0.03279
+        },
+        {
+          "rank": 2,
+          "book_id": 3433358,
+          "title": "Hominids",
+          "author": "Robert J. Sawyer",
+          "distance": 0.5632,
+          "score": 0.01613
+        },
+        {
+          "rank": 3,
+          "book_id": 868696,
+          "title": "Simon vs. the Homo Sapiens Agenda",
+          "author": "Becky Albertalli",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 4,
+          "book_id": 4447889,
+          "title": "Behave: The Biology of Humans at Our Best and Worst",
+          "author": "Robert M. Sapolsky",
+          "distance": 0.5979,
+          "score": 0.01587
+        },
+        {
+          "rank": 5,
+          "book_id": 407350,
+          "title": "Planet of the Apes",
+          "author": "Pierre Boulle",
+          "distance": 0.6007,
+          "score": 0.01562
+        },
+        {
+          "rank": 6,
+          "book_id": 5544150,
+          "title": "Tribes: We Need You to Lead Us",
+          "author": "Seth Godin",
+          "distance": 0.6114,
+          "score": 0.01538
+        },
+        {
+          "rank": 7,
+          "book_id": 3563981,
+          "title": "Homo Deus: A History of Tomorrow",
+          "author": "Yuval Noah Harari",
+          "distance": 0.6296,
+          "score": 0.01515
+        },
+        {
+          "rank": 8,
+          "book_id": 2911953,
+          "title": "The People in the Trees",
+          "author": "Hanya Yanagihara",
+          "distance": 0.6317,
+          "score": 0.01493
+        },
+        {
+          "rank": 9,
+          "book_id": 2678562,
+          "title": "The Ancestor's Tale: A Pilgrimage to the Dawn of Evolution",
+          "author": "Richard Dawkins",
+          "distance": 0.6325,
+          "score": 0.01471
+        },
+        {
+          "rank": 10,
+          "book_id": 4067389,
+          "title": "The Third Chimpanzee: The Evolution and Future of the Human Animal",
+          "author": "Jared Diamond",
+          "distance": 0.6454,
+          "score": 0.01449
+        }
+      ]
+    },
+    {
+      "id": "q25",
+      "type": "nonfiction",
+      "query": "a history of how humans evolved and built civilisations",
+      "expected_count": 2,
+      "found": [
+        {
+          "title": "Sapiens",
+          "rank": 1
+        },
+        {
+          "title": "Guns, Germs, and Steel",
+          "rank": 2
+        }
+      ],
+      "unresolved": [],
+      "recall": 1.0,
+      "reciprocal_rank": 1.0,
+      "first_rank": 1,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 4852340,
+          "title": "Sapiens: A Brief History of Humankind",
+          "author": "Yuval Noah Harari",
+          "distance": 0.436,
+          "score": 0.03178
+        },
+        {
+          "rank": 2,
+          "book_id": 2347658,
+          "title": "Guns, Germs, and Steel: The Fates of Human Societies",
+          "author": "Jared Diamond",
+          "distance": 0.6158,
+          "score": 0.02942
+        },
+        {
+          "rank": 3,
+          "book_id": 2295042,
+          "title": "Your Inner Fish: a Journey into the 3.5-Billion-Year History of the Human Body",
+          "author": "Neil Shubin",
+          "distance": 0.67,
+          "score": 0.02859
+        },
+        {
+          "rank": 4,
+          "book_id": 3563981,
+          "title": "Homo Deus: A History of Tomorrow",
+          "author": "Yuval Noah Harari",
+          "distance": 0.6548,
+          "score": 0.02686
+        },
+        {
+          "rank": 5,
+          "book_id": 5056496,
+          "title": "At Home: A Short History of Private Life",
+          "author": "Bill Bryson",
+          "distance": 0.667,
+          "score": 0.02411
+        },
+        {
+          "rank": 6,
+          "book_id": 592542,
+          "title": "The Gene: An Intimate History",
+          "author": "Siddhartha Mukherjee",
+          "distance": 0.6421,
+          "score": 0.02322
+        },
+        {
+          "rank": 7,
+          "book_id": 4713674,
+          "title": "The World Until Yesterday: What Can We Learn from Traditional Societies?",
+          "author": "Jared Diamond",
+          "distance": 0.5139,
+          "score": 0.01613
+        },
+        {
+          "rank": 8,
+          "book_id": 4931171,
+          "title": "The Tale of the Dueling Neurosurgeons: The History of the Human Brain as Revealed by True Stories of Trauma, Madness, and Recovery",
+          "author": "Sam Kean",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 9,
+          "book_id": 4067389,
+          "title": "The Third Chimpanzee: The Evolution and Future of the Human Animal",
+          "author": "Jared Diamond",
+          "distance": 0.5618,
+          "score": 0.01587
+        },
+        {
+          "rank": 10,
+          "book_id": 2927930,
+          "title": "Human, All Too Human: A Book for Free Spirits",
+          "author": "Friedrich Nietzsche",
+          "distance": null,
+          "score": 0.01587
+        }
+      ]
+    },
+    {
+      "id": "q26",
+      "type": "nonfiction",
+      "query": "how habits form and how to change them",
+      "expected_count": 2,
+      "found": [
+        {
+          "title": "The Power of Habit",
+          "rank": 4
+        },
+        {
+          "title": "Atomic Habits",
+          "rank": 1
+        }
+      ],
+      "unresolved": [],
+      "recall": 1.0,
+      "reciprocal_rank": 1.0,
+      "first_rank": 1,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 2803776,
+          "title": "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
+          "author": "James Clear",
+          "distance": 0.3076,
+          "score": 0.03202
+        },
+        {
+          "rank": 2,
+          "book_id": 3595225,
+          "title": "Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones",
+          "author": "James Clear",
+          "distance": 0.3076,
+          "score": 0.032
+        },
+        {
+          "rank": 3,
+          "book_id": 1860828,
+          "title": "The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change",
+          "author": "Stephen R. Covey",
+          "distance": 0.5722,
+          "score": 0.0311
+        },
+        {
+          "rank": 4,
+          "book_id": 58490,
+          "title": "The Power of Habit: Why We Do What We Do in Life and Business",
+          "author": "Charles Duhigg",
+          "distance": 0.5902,
+          "score": 0.02837
+        },
+        {
+          "rank": 5,
+          "book_id": 4727263,
+          "title": "Better Than Before: Mastering the Habits of Our Everyday Lives",
+          "author": "Gretchen Rubin",
+          "distance": 0.3269,
+          "score": 0.0275
+        },
+        {
+          "rank": 6,
+          "book_id": 1785609,
+          "title": "Switch: How to Change Things When Change Is Hard",
+          "author": "Chip Heath",
+          "distance": 0.6544,
+          "score": 0.02688
+        },
+        {
+          "rank": 7,
+          "book_id": 5238965,
+          "title": "Attitude Is Everything: Change Your Attitude... and You Change Your Life!",
+          "author": "Jeff Keller",
+          "distance": 0.6582,
+          "score": 0.02604
+        },
+        {
+          "rank": 8,
+          "book_id": 1398988,
+          "title": "The 8th Habit: From Effectiveness to Greatness",
+          "author": "Stephen R. Covey",
+          "distance": 0.5632,
+          "score": 0.02473
+        },
+        {
+          "rank": 9,
+          "book_id": 1347436,
+          "title": "The 7 Habits of Highly Effective Teens: The Ultimate Teenage Success Guide",
+          "author": "Sean Covey",
+          "distance": 0.5918,
+          "score": 0.02469
+        },
+        {
+          "rank": 10,
+          "book_id": 5212825,
+          "title": "The Creative Habit: Learn It and Use It for Life",
+          "author": "Twyla Tharp",
+          "distance": 0.6701,
+          "score": 0.02126
+        }
+      ]
+    }
+  ]
+}

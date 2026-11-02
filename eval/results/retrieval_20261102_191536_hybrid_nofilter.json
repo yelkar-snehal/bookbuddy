@@ -1,0 +1,2482 @@
+{
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "top_k": 10,
+  "mode": "hybrid",
+  "min_ratings": null,
+  "summary": {
+    "overall": {
+      "queries": 26,
+      "recall@10": 0.115,
+      "mrr": 0.042,
+      "hit_rate": 0.115
+    },
+    "by_type": {
+      "lookup": {
+        "queries": 4,
+        "recall@10": 0.5,
+        "mrr": 0.208,
+        "hit_rate": 0.5
+      },
+      "mood": {
+        "queries": 5,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "hit_rate": 0.0
+      },
+      "nonfiction": {
+        "queries": 2,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "hit_rate": 0.0
+      },
+      "plot": {
+        "queries": 11,
+        "recall@10": 0.091,
+        "mrr": 0.023,
+        "hit_rate": 0.091
+      },
+      "similar_to": {
+        "queries": 4,
+        "recall@10": 0.0,
+        "mrr": 0.0,
+        "hit_rate": 0.0
+      }
+    },
+    "unscored_queries": []
+  },
+  "results": [
+    {
+      "id": "q01",
+      "type": "plot",
+      "query": "a smuggler living in the first city on the Moon gets pulled into a conspiracy",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 3274361,
+          "title": "First Dog On The Moon\u2019s The Story of The Christmas Story",
+          "author": "First Dog on the Moon",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 2,
+          "book_id": 5250892,
+          "title": "First Instance",
+          "author": "David Gowey",
+          "distance": 0.4388,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 3976976,
+          "title": "Moon Hoax",
+          "author": "Paul Gillebaard",
+          "distance": 0.4391,
+          "score": 0.01613
+        },
+        {
+          "rank": 4,
+          "book_id": 5647498,
+          "title": "A Sea of Red: 50 Years With the Chiefs and The Kansas City Star First edition by Jeffrey Flanagan and The Kansas City Star (2009) Hardcover",
+          "author": "Jeffrey Flanagan and The Kansas City Star",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 595630,
+          "title": "First on the Moon: Based Upon Actual Events",
+          "author": "David R. Mann",
+          "distance": 0.442,
+          "score": 0.01587
+        },
+        {
+          "rank": 6,
+          "book_id": 2081563,
+          "title": "The Single Guy's First Angeles City Vacation: A travel guide to help guys get the most out of the nightlife in Angeles City on their trip",
+          "author": "Guy McKnight",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 3468577,
+          "title": "Articles on Widespread Panic Albums, Including: Choice Cuts: The Capricorn Years 1991 \"1999, Live in the Classic City, Light Fuse, Get Away, Another Joyous Occasion, Night of Joy, Ber Cobra, Jackassolantern, Live at Myrtle Beach",
+          "author": "Hephaestus Books",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 8,
+          "book_id": 25174,
+          "title": "First on the Moon",
+          "author": "Jeff Sutton",
+          "distance": 0.4438,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 5674931,
+          "title": "Smuggler's Moon",
+          "author": "Bruce Alexander",
+          "distance": 0.444,
+          "score": 0.01538
+        },
+        {
+          "rank": 10,
+          "book_id": 778741,
+          "title": "How To Do Your First Pull Up | Pull Ups | Big Biceps | How To Get Bigger Arms",
+          "author": "Jean  Stone",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q02",
+      "type": "plot",
+      "query": "a reporter returns to her small hometown to cover the murders of two young girls",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 6138488,
+          "title": "Two Girls Trapped in Their Own Case",
+          "author": "Sandra Barton",
+          "distance": 0.3812,
+          "score": 0.01639
+        },
+        {
+          "rank": 2,
+          "book_id": 2196245,
+          "title": "Love You Madly: The True Story of a Small-Town Girl, the Young Men She Seduced, and the Murder of Her Mother",
+          "author": "Michael Fleeman",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 3320611,
+          "title": "Ch 2- Karen Ewanciw: An Excerpt from Deadmonton: Crime Stories from Canada's Murder City",
+          "author": "Pamela Roth",
+          "distance": 0.3942,
+          "score": 0.01613
+        },
+        {
+          "rank": 4,
+          "book_id": 1135206,
+          "title": "101 Things Every Girl Should Know: Expert Advice on Stuff Big and Small",
+          "author": "From the Editors of Faithgirlz!",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 5719680,
+          "title": "Killer: The Summerfield Murders Part 1",
+          "author": "C.S. Carter",
+          "distance": 0.4061,
+          "score": 0.01587
+        },
+        {
+          "rank": 6,
+          "book_id": 5049744,
+          "title": "BRAZIL HOT GIRLS 2 (Sex Pictures Uncensored Book) Sexy erotic pictures of a cute young college girl stripping: Sexy young adult photos & striptease Latin Girls",
+          "author": "Luna Girls",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 2438468,
+          "title": "Little Girls Lost: The Stories of Four of Australia's Most Horrific Child Murders, and Their Families' Fight for Justice",
+          "author": "Helen Reade",
+          "distance": 0.4068,
+          "score": 0.01562
+        },
+        {
+          "rank": 8,
+          "book_id": 4717569,
+          "title": "BRAZIL HOT GIRLS 8 (Sex Pictures Uncensored Book) Sexy erotic pictures of a cute young college girl stripping: Sexy young adult photos & striptease Latin Girls",
+          "author": "Luna Girls",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 2772422,
+          "title": "Murder in a Snow Covered Town and other stories",
+          "author": "Eric   Lee",
+          "distance": 0.4242,
+          "score": 0.01538
+        },
+        {
+          "rank": 10,
+          "book_id": 5053065,
+          "title": "BRAZIL HOT GIRLS 4 (Sex Pictures Uncensored Book) Sexy erotic pictures of a cute young college girl stripping: Sexy young adult photos & striptease Latin Girls",
+          "author": "Luna Girls",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q03",
+      "type": "plot",
+      "query": "a boy finds out he is a wizard and goes to a school of magic",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 3123633,
+          "title": "Stampy Cat Goes to Minewarts School of Witchcraft and Wizardry: An Unofficial Minecraft Magic Short Story for Children featuring Minecraft Youtuber Stampylongnose",
+          "author": "Blockosphere Books",
+          "distance": 0.4588,
+          "score": 0.02399
+        },
+        {
+          "rank": 2,
+          "book_id": 1264397,
+          "title": "The Boy Wizard",
+          "author": "D. Dravin",
+          "distance": 0.3251,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 1857506,
+          "title": "The Book of Wizard Magic: In Which the Apprentice Finds Marvelous Magic Tricks, Mystifying Illusions & Astonishing Tales",
+          "author": "Janice Eaton Kilby",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 4,
+          "book_id": 6304843,
+          "title": "School of Wizardry",
+          "author": "Debra Doyle",
+          "distance": 0.3728,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 2609800,
+          "title": "Sweet Whisper School of Magic & Ancient Arts: A Dangerous Adventure of a School Boy",
+          "author": "Charlie McNaomi",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 6,
+          "book_id": 30292,
+          "title": "Kaytek the Wizard",
+          "author": "Janusz Korczak",
+          "distance": 0.379,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 5998222,
+          "title": "The Baby Name Wizard: A Magical Method for Finding the Perfect Name for Your Baby",
+          "author": "Laura Wattenberg",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 8,
+          "book_id": 1702386,
+          "title": "Ninja Boy Goes to School",
+          "author": "N.D. Wilson",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 295760,
+          "title": "Feels Like Magic : a mystery book for kids 9-12",
+          "author": "Paul Johnson-Jovanovic",
+          "distance": 0.394,
+          "score": 0.01562
+        },
+        {
+          "rank": 10,
+          "book_id": 1007149,
+          "title": "Billy Wizard",
+          "author": "Chris Priestley",
+          "distance": 0.4033,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q04",
+      "type": "plot",
+      "query": "teenagers are forced to fight to the death in a televised game",
+      "expected_count": 2,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 5291147,
+          "title": "Best-Ever Games for Youth Ministry: A Collection of Easy, FUN Games for Teenagers!",
+          "author": "Les Christie",
+          "distance": 0.5368,
+          "score": 0.02084
+        },
+        {
+          "rank": 2,
+          "book_id": 5753505,
+          "title": "Fighting to the Death: My Life in the World's Deadliest Fight Game",
+          "author": "Carl Merritt",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 4082889,
+          "title": "Stop Teaching Our Kids to Kill: A Call to Action Against TV, Movie & Video Game Violence",
+          "author": "Dave Grossman",
+          "distance": 0.4289,
+          "score": 0.01639
+        },
+        {
+          "rank": 4,
+          "book_id": 3043722,
+          "title": "Roger Corman Presents: The Deathsport Games",
+          "author": "Mark L. Miller",
+          "distance": 0.455,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 4828750,
+          "title": "Playing with Power in Movies, Television, and Video Games: From Muppet Babies to Teenage Mutant Ninja Turtles",
+          "author": "Marsha Kinder",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 6,
+          "book_id": 4585612,
+          "title": "Death Before Dishonour: True Stories of the Special Forces Heroes Who Fight Global Terror",
+          "author": "Nicholas Davies",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 5699526,
+          "title": "Assassination Generation: Video Games, Aggression, and the Psychology of Killing",
+          "author": "Dave Grossman",
+          "distance": 0.4603,
+          "score": 0.01587
+        },
+        {
+          "rank": 8,
+          "book_id": 2502015,
+          "title": "Game Over",
+          "author": "Joseph Locke",
+          "distance": 0.4632,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 5714681,
+          "title": "U.S. Special Forces: A Guide to America's Special Operations Units-The World's Most Elite Fighting Force",
+          "author": "Samuel A. Southworth",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 10,
+          "book_id": 133996,
+          "title": "Preventing Teenage Violence: An Empirical Paradigm for Schools and Families",
+          "author": "John S. Wodarski",
+          "distance": 0.4824,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q05",
+      "type": "plot",
+      "query": "a totalitarian state where Big Brother watches everyone",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 6124454,
+          "title": "Big Brother: Who Is Watching You?",
+          "author": "Joseph     O'Neill",
+          "distance": 0.4342,
+          "score": 0.03125
+        },
+        {
+          "rank": 2,
+          "book_id": 426070,
+          "title": "Big Brother Is Watching: Secret Police and the Intelligence Services",
+          "author": "Elaine Landau",
+          "distance": 0.3898,
+          "score": 0.0311
+        },
+        {
+          "rank": 3,
+          "book_id": 505894,
+          "title": "Big Brother Watch",
+          "author": "Alex Deane",
+          "distance": 0.436,
+          "score": 0.03077
+        },
+        {
+          "rank": 4,
+          "book_id": 2627413,
+          "title": "The League of Big Brothers - 18 Dystopia Classics in One Volume: 1984, It Can't Happen Here, Brave New World, Iron Heel, Meccania the Super-State, Lord ... of Endless Night, That Hideous Strength...",
+          "author": "George Orwell",
+          "distance": 0.466,
+          "score": 0.02996
+        },
+        {
+          "rank": 5,
+          "book_id": 5307817,
+          "title": "I predict 1984: Is big brother watching you?",
+          "author": "Lester Sumrall",
+          "distance": 0.4389,
+          "score": 0.02964
+        },
+        {
+          "rank": 6,
+          "book_id": 5277377,
+          "title": "Watching Big Brother: A First Time Romance",
+          "author": "T.J. MacCallum",
+          "distance": 0.4941,
+          "score": 0.02765
+        },
+        {
+          "rank": 7,
+          "book_id": 2119254,
+          "title": "2044: The Problem Isnt Big Brother. Its Big Brother, Inc.",
+          "author": "Eric Lotke",
+          "distance": 0.455,
+          "score": 0.02753
+        },
+        {
+          "rank": 8,
+          "book_id": 541659,
+          "title": "Is Big Brother Still Watching: The George Orwell Legacy",
+          "author": "George Woodcock",
+          "distance": 0.4877,
+          "score": 0.02744
+        },
+        {
+          "rank": 9,
+          "book_id": 2565516,
+          "title": "The Road to Big Big Brother: One Man's Struggle Against the Surveillance Society",
+          "author": "Ross Clark",
+          "distance": 0.4778,
+          "score": 0.02546
+        },
+        {
+          "rank": 10,
+          "book_id": 2442916,
+          "title": "Big Brother Big Banker: The Disturbing True Story of The Money Lenders and Their Deliberate Plans To Create The New World Order",
+          "author": "Steven M. Bishop",
+          "distance": 0.512,
+          "score": 0.02178
+        }
+      ]
+    },
+    {
+      "id": "q06",
+      "type": "plot",
+      "query": "a girl in the American South whose father defends a Black man accused of a crime he did not commit",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 1740076,
+          "title": "The Man in Black - UFO's - The Truth is out there",
+          "author": "The Man In Black",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 2,
+          "book_id": 837187,
+          "title": "Guilty but Innocent",
+          "author": "Joseph Anthony",
+          "distance": 0.4019,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 1589682,
+          "title": "The Innocent & the Guilty",
+          "author": "M.H. Landy",
+          "distance": 0.4044,
+          "score": 0.01613
+        },
+        {
+          "rank": 4,
+          "book_id": 5410937,
+          "title": "Defending Slavery: Proslavery Thought in the South & New York Conspiracy Trials of 1741 & Black Americans in Revolutionary Era & Emancipation Proclamation & Crosscurrents in the Black Atlantic",
+          "author": "Paul Finkelman",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 6371220,
+          "title": "Fatherhood on Trial: The Fight to Be a Father in the Age of Divorce",
+          "author": "Josh Kimbrell",
+          "distance": 0.4267,
+          "score": 0.01587
+        },
+        {
+          "rank": 6,
+          "book_id": 6293486,
+          "title": "Julius Rosenwald: The Man Who Built Sears, Roebuck and Advanced the Cause of Black Education in the American South",
+          "author": "Peter M. Ascoli",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 5018722,
+          "title": "Wrongful Convictions of Women: When Innocence Isn't Enough",
+          "author": "Marvin D. Free",
+          "distance": 0.4269,
+          "score": 0.01562
+        },
+        {
+          "rank": 8,
+          "book_id": 5151585,
+          "title": "Lessons From The Gypsy Camp: A young girl defies her alcoholic father to save the life of a gypsy man accused of murder",
+          "author": "Elizabeth Appell",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 1125441,
+          "title": "Race and Justice: Wrongful Convictions of African American Men",
+          "author": "Jr. Free",
+          "distance": 0.4298,
+          "score": 0.01538
+        },
+        {
+          "rank": 10,
+          "book_id": 769054,
+          "title": "African American relationship advice - Finding a partner with some soul Learn What Men Really Think About Love, Relationships, Intimacy, and Commitment: Learn to Think like a Black Man",
+          "author": "Joshua Osenga",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q07",
+      "type": "plot",
+      "query": "a hobbit travels with dwarves to take back their treasure from a dragon",
+      "expected_count": 1,
+      "found": [
+        {
+          "title": "The Hobbit",
+          "rank": 4
+        }
+      ],
+      "unresolved": [],
+      "recall": 1.0,
+      "reciprocal_rank": 0.25,
+      "first_rank": 4,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 4173818,
+          "title": "Take Back Your Life! Travel Full-Time In An RV",
+          "author": "Stephanie Bernhagen",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 2,
+          "book_id": 2891325,
+          "title": "The Hobbit: by J.R.R. Tolkien | Digest & Review: or, There and Back Again",
+          "author": "Reader's Companions",
+          "distance": 0.3633,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 6375223,
+          "title": "Hidden Treasures: Traveling the Back Roads of the Bible in Search of Truth",
+          "author": "Judson Edwards",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 4,
+          "book_id": 5287562,
+          "title": "The Hobbit, Part 2 of 2",
+          "author": "J.R.R. Tolkien",
+          "distance": 0.3958,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 5972438,
+          "title": "The Dragon's Hoard",
+          "author": "Carol Hightshoe",
+          "distance": 0.4212,
+          "score": 0.01587
+        },
+        {
+          "rank": 6,
+          "book_id": 3606393,
+          "title": "Take Back Your Government",
+          "author": "Robert A. Heinlein",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 3512414,
+          "title": "The Hobbit: An Unexpected Journey - Visual Companion",
+          "author": "Jude Fisher",
+          "distance": 0.4244,
+          "score": 0.01562
+        },
+        {
+          "rank": 8,
+          "book_id": 4689659,
+          "title": "Dragon's Treasure",
+          "author": "Elizabeth A. Lynn",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 4951753,
+          "title": "The Hobbit: The Desolation of Smaug Unofficial Guide",
+          "author": "Stephen Eastment",
+          "distance": 0.4245,
+          "score": 0.01538
+        },
+        {
+          "rank": 10,
+          "book_id": 4567079,
+          "title": "Women With Controlling Partners: Taking Back Your Life from a Manipulative or Abusive Partner",
+          "author": "Carol A Lambert MSW",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q08",
+      "type": "plot",
+      "query": "a woman disappears on her wedding anniversary and her husband becomes the main suspect",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 4799653,
+          "title": "31 Days of Prayer for your Future Husband: Becoming a Wife Before the Wedding Day",
+          "author": "Tiffany Langford",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 2,
+          "book_id": 2718512,
+          "title": "Appearing, Disappearing",
+          "author": "Janet  Evans",
+          "distance": 0.4459,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 810114,
+          "title": "Missing Wives, Missing Lives",
+          "author": "J.J. Slate",
+          "distance": 0.4463,
+          "score": 0.01613
+        },
+        {
+          "rank": 4,
+          "book_id": 774140,
+          "title": "The Scorned Wife - To win back her husband, the rejected wife must emulate the other woman. Become her.: A romantic suspense & romantic crime thriller about a wife who refuses to turn the other cheek",
+          "author": "Eve Rabi",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 286427,
+          "title": "Gone with the Groom",
+          "author": "Janice A. Thompson",
+          "distance": 0.4506,
+          "score": 0.01587
+        },
+        {
+          "rank": 6,
+          "book_id": 4775638,
+          "title": "Derailed: To win back her husband, the rejected wife must emulate the other woman. Become her if possible",
+          "author": "Eve Rabi",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 3165984,
+          "title": "Discovering The Mind Of A Woman: The Key To Becoming A Strong And Irresistible Husband Is...",
+          "author": "Ken Nair",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 8,
+          "book_id": 1121620,
+          "title": "And the Bride Vanishes",
+          "author": "Jacqueline Diamond",
+          "distance": 0.4749,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 6319034,
+          "title": "The Vanishing Bridegroom",
+          "author": "Alice Sharpe",
+          "distance": 0.4751,
+          "score": 0.01538
+        },
+        {
+          "rank": 10,
+          "book_id": 3079360,
+          "title": "Discovering the Mind of a Woman: The Key to Becoming a Strong and Irresistable Husband is...",
+          "author": "Ken Nair",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q09",
+      "type": "plot",
+      "query": "a scientist creates a living creature from parts of dead bodies",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 1880480,
+          "title": "Necrotic: Dead Flesh on a Living Body #1 of 3",
+          "author": "Buddy Scalera",
+          "distance": 0.4574,
+          "score": 0.02822
+        },
+        {
+          "rank": 2,
+          "book_id": 462676,
+          "title": "Living Dead Films (Film Guide): Day of the Dead, Night of the Living Dead, Dawn of the Dead, Shaun of the Dead, Diary of the Dead, Survival of the Dead, Land of the Dead, Zombi 2, Cemetery Man, Return of the Living Dead Part II",
+          "author": "Books LLC",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 74945,
+          "title": "Death: Corpses, Cadavers, and Other Grave Matters",
+          "author": "Elizabeth A. Murray",
+          "distance": 0.4065,
+          "score": 0.01639
+        },
+        {
+          "rank": 4,
+          "book_id": 4329338,
+          "title": "Speaking for the Dead: Cadavers in Biology and Medicine",
+          "author": "D. Gareth Jones",
+          "distance": 0.4271,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 2255629,
+          "title": "The Political Lives of Dead Bodies",
+          "author": "Katherine Verdery",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 6,
+          "book_id": 4634798,
+          "title": "While Out of My Body I saw God Hell and the Living Dead",
+          "author": "Roger Mills",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 3913451,
+          "title": "Death's Acre: Inside the Legendary Forensic Lab the Body Farm Where the Dead Do Tell Tales",
+          "author": "William M. Bass",
+          "distance": 0.4301,
+          "score": 0.01587
+        },
+        {
+          "rank": 8,
+          "book_id": 3913295,
+          "title": "Corpse: Nature, Forensics, and the Struggle to Pinpoint Time of Death",
+          "author": "Jessica Snyder Sachs",
+          "distance": 0.4325,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 1435244,
+          "title": "Real Zombies, the Living Dead, and Creatures of the Apocalypse",
+          "author": "Brad Steiger",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 10,
+          "book_id": 6095245,
+          "title": "The Story of the Living Machine (Illustrated Edition): Work From A Professor Of Biology First Published In 1899 About The Human Body, With Fifty Illustrations.",
+          "author": "Herbert William Conn",
+          "distance": 0.4397,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q10",
+      "type": "plot",
+      "query": "a ship captain is obsessed with hunting a white whale",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 144926,
+          "title": "Moby Dick: Chasing the Great White Whale",
+          "author": "Eric A. Kimmel",
+          "distance": 0.4041,
+          "score": 0.02753
+        },
+        {
+          "rank": 2,
+          "book_id": 19148,
+          "title": "Captain Jim and the Killer Whales",
+          "author": "Carol A. Amato",
+          "distance": 0.4039,
+          "score": 0.02712
+        },
+        {
+          "rank": 3,
+          "book_id": 34331,
+          "title": "Gone A-Whaling : The Lure of the Sea and the Hunt for the Great Whale",
+          "author": "Jim  Murphy",
+          "distance": 0.4135,
+          "score": 0.02403
+        },
+        {
+          "rank": 4,
+          "book_id": 4928582,
+          "title": "Whale Hunt: The Narrative of a Voyage by Nelson Cole Haley, Harpooner in the Ship Charles W. Morgan 1849-1853",
+          "author": "Nelson Cole Haley",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 5,
+          "book_id": 4302325,
+          "title": "A Great White Whale of a Time During the Falklands War",
+          "author": "Alan Johansen",
+          "distance": 0.3521,
+          "score": 0.01639
+        },
+        {
+          "rank": 6,
+          "book_id": 1736191,
+          "title": "Fighting with Whales",
+          "author": "Michael J. McHugh",
+          "distance": 0.367,
+          "score": 0.01613
+        },
+        {
+          "rank": 7,
+          "book_id": 1690497,
+          "title": "Annie Ricketson\ufffds Journal: The Remarkable Voyage of the Only Woman Aboard a Whaling Ship with Her Sea Captain Husband and Crew, 1871-1874",
+          "author": "Laura Doherty",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 8,
+          "book_id": 633890,
+          "title": "Annie Ricketson's Journal: The Remarkable Voyage of the Only Woman Aboard a Whaling Ship with Her Sea Captain Husband and Crew, 1871-1874 / Laura",
+          "author": "Laura Ricketson Doherty",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 9,
+          "book_id": 1557722,
+          "title": "Moby Dick In Plain and Simple English (Includes Study Guide, Complete Unabridged Book, Historical Context, and Character Index)",
+          "author": "BookCaps",
+          "distance": 0.3726,
+          "score": 0.01587
+        },
+        {
+          "rank": 10,
+          "book_id": 4045235,
+          "title": "Moby Dick eBook",
+          "author": "Graphic Planet",
+          "distance": 0.374,
+          "score": 0.01562
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "type": "plot",
+      "query": "a woman who survived the murder of her family as a child looks into the crime again decades later",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 696869,
+          "title": "Surviving Murder: A True-Crime Memoir",
+          "author": "Linda Principe",
+          "distance": 0.3562,
+          "score": 0.02568
+        },
+        {
+          "rank": 2,
+          "book_id": 5826790,
+          "title": "Surviving Murder: A True-Crime Memoir",
+          "author": "Linda Principe",
+          "distance": 0.3562,
+          "score": 0.02524
+        },
+        {
+          "rank": 3,
+          "book_id": 2791848,
+          "title": "Women Serial and Mass Murderers: A Worldwide Reference, 1580 Through 1990",
+          "author": "Kerry Segrave",
+          "distance": 0.3453,
+          "score": 0.01639
+        },
+        {
+          "rank": 4,
+          "book_id": 5687281,
+          "title": "Stolen in the Night: The True Story of a Family's Murder, a Kidnapping and the Child Who Survived",
+          "author": "Gary C. King",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 5,
+          "book_id": 598168,
+          "title": "Decades of Dirt: Murder, Mystery and Mayhem from the Crossroads of Crime",
+          "author": "Speed City Crime Writers",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 6,
+          "book_id": 2838547,
+          "title": "An Old Fashioned Murder",
+          "author": "Laurie Pooler Pelayo",
+          "distance": 0.3558,
+          "score": 0.01613
+        },
+        {
+          "rank": 7,
+          "book_id": 3301205,
+          "title": "When Your Child Is Missing: A Family Survival Guide",
+          "author": "Office of Juvenile Justice and Delinquency Prevention",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 8,
+          "book_id": 4669409,
+          "title": "Hollywood Murders: A Stunning Look At Some Of The Worlds Most Famous Hollywood Murders, Hollywood Crimes And What Really Happens In The Underbelly Of This ... Hollywood Murders Books, Hollywood Murders)",
+          "author": "Malcolm Cliver",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 4225695,
+          "title": "Murder of a Childhood",
+          "author": "David Pietras",
+          "distance": 0.3595,
+          "score": 0.01538
+        },
+        {
+          "rank": 10,
+          "book_id": 460570,
+          "title": "Children And Death, including: Infanticide, Sudden Infant Death Syndrome, Infant Mortality, Child Murder, Mana Genita, The Brothers Lionheart, Child Mortality, When Life Departs, Child Survival, History Of Children In The Holocaust, Child Saint, Orphan",
+          "author": "Hephaestus Books",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "type": "mood",
+      "query": "hopeful, character-driven science fiction about a found family on a spaceship",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 4178880,
+          "title": "Spaceships of Science Fiction",
+          "author": "Piers Beckley",
+          "distance": 0.4158,
+          "score": 0.02549
+        },
+        {
+          "rank": 2,
+          "book_id": 5259411,
+          "title": "Science fiction at large: A collection of essays, by various hands, about the interface between science fiction and reality",
+          "author": "various-hands-about-the-interface-between-science-fiction-and-reality",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 5984020,
+          "title": "Spaceship of Ancestors",
+          "author": "Clark Darlton",
+          "distance": 0.3101,
+          "score": 0.01639
+        },
+        {
+          "rank": 4,
+          "book_id": 2474756,
+          "title": "First Family in Space",
+          "author": "Raymond Bean",
+          "distance": 0.3851,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 3623367,
+          "title": "Writing Character-Driven Short Fiction",
+          "author": "George  Berger",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 6,
+          "book_id": 3248499,
+          "title": "Science Comics. Issues 6 and 7. Features Dynamo, The Eagle, Cosmic Carson and Perishpere Payne. Golden Age Digital Comics Science Fiction",
+          "author": "Golden Age Science Fiction Comics",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 4213911,
+          "title": "Round Trip Space Ship",
+          "author": "Louis Slobodkin",
+          "distance": 0.3987,
+          "score": 0.01587
+        },
+        {
+          "rank": 8,
+          "book_id": 907229,
+          "title": "Spaceships",
+          "author": "John Hamilton",
+          "distance": 0.4144,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 4216408,
+          "title": "Heroines: A Bibliography of Women Series Characters in Mystery, Espionage, Action, Science Fiction, Fantasy, Horror, Western, Romance and Juvenile Novels",
+          "author": "Bernard A. Drew",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 10,
+          "book_id": 610005,
+          "title": "Tentacle Of Doom: Short Science Fiction Adventure Fantasy Novel And Space Suspense Horror Story Comic Book Anthology Sci Fi Mystery Thriller Series",
+          "author": "Science Fiction Comics",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "type": "mood",
+      "query": "dark academia about a group of classics students who commit a murder",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 5129284,
+          "title": "On a Dark Christmas Night \u2013 25 Holiday Spook Classics & Murder Mysteries",
+          "author": "Robert Louis Stevenson",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 2,
+          "book_id": 3665639,
+          "title": "Dark Lessons: Crime and Detection on Campus",
+          "author": "Marcia Muller",
+          "distance": 0.3035,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 87971,
+          "title": "Murder at the B-School",
+          "author": "Jeffrey L. Cruikshank",
+          "distance": 0.3229,
+          "score": 0.01613
+        },
+        {
+          "rank": 4,
+          "book_id": 2809584,
+          "title": "Dark Doings at Miskatonic U. - 12 Chilling New and Classic Tales of that Haunted University's Ill-fated Students and Faculty",
+          "author": "M. Christian",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 3895923,
+          "title": "A Degree In Death",
+          "author": "Ruby Gupta",
+          "distance": 0.3408,
+          "score": 0.01587
+        },
+        {
+          "rank": 6,
+          "book_id": 2981929,
+          "title": "Sickles at Gettysburg: The Controversial Civil War General Who Committed Murder, Abandoned Little Round Top, and Declared Himself the Hero of Gettysburg",
+          "author": "James A. Hessler",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 1248883,
+          "title": "The Conversation: Challenging Your Student with a Classical Education",
+          "author": "Leigh A. Bortins",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 8,
+          "book_id": 1368258,
+          "title": "CORPSE IN THE CAMPUS",
+          "author": "Harry Glum",
+          "distance": 0.3479,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 4155202,
+          "title": "The Unofficial Guide To Harvard With Murder",
+          "author": "John Crowther",
+          "distance": 0.3495,
+          "score": 0.01538
+        },
+        {
+          "rank": 10,
+          "book_id": 2931337,
+          "title": "Top 7 Catholic Classics: On Loving God, The Cloud of Unknowing, Dialogue of Saint Catherine of Siena, The Imitation of Christ, Interior Castle, Dark Night ... of God",
+          "author": "Catherine of Siena",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "type": "mood",
+      "query": "a heartbreaking story about friendship, betrayal and guilt in Afghanistan",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 1325621,
+          "title": "Love & War in Afghanistan",
+          "author": "Alexander Klaits",
+          "distance": 0.2587,
+          "score": 0.01639
+        },
+        {
+          "rank": 2,
+          "book_id": 1806862,
+          "title": "Hatching Twitter: A True Story of Money, Power, Friendship, and Betrayal",
+          "author": "Nick Bilton",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 2461968,
+          "title": "Afghanistan: A Collection of Stories",
+          "author": "Abdul Rahman Rahmani",
+          "distance": 0.2772,
+          "score": 0.01613
+        },
+        {
+          "rank": 4,
+          "book_id": 3321562,
+          "title": "Grandad's Funeral: A Heartbreaking True Story of Child Abuse, Betrayal and Revenge.",
+          "author": "Kate Skylark",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 3644617,
+          "title": "THE AFGHANS",
+          "author": "Nadeem Akbar",
+          "distance": 0.2834,
+          "score": 0.01587
+        },
+        {
+          "rank": 6,
+          "book_id": 5679363,
+          "title": "Betrayed: Part 1 of 3: The heartbreaking true story of a struggle to escape a cruel life defined by family honour",
+          "author": "Rosie Lewis",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 111638,
+          "title": "Land of Eternal Hope: Ten Years of Lives Shared in Afghanistan",
+          "author": "Charlotte Dufour",
+          "distance": 0.2862,
+          "score": 0.01562
+        },
+        {
+          "rank": 8,
+          "book_id": 1570483,
+          "title": "I Just Wanted to be Loved: A Boy's Heartbreaking True Story of Abuse and Betrayal",
+          "author": "Crystal Castle",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 4667148,
+          "title": "Our Shared Stories: An Afghan Diary",
+          "author": "Emal Dusst",
+          "distance": 0.2916,
+          "score": 0.01538
+        },
+        {
+          "rank": 10,
+          "book_id": 2723771,
+          "title": "A Song At Sunset: A moving World War Two love story of family, heartbreak and guilt",
+          "author": "Amelia Carr",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "type": "mood",
+      "query": "epic fantasy with a hard magic system where people burn metals for powers",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 6242576,
+          "title": "Magic World: Fantasy Roleplaying in Worlds of Epic Adventure",
+          "author": "Chaosium Inc.",
+          "distance": 0.4383,
+          "score": 0.02636
+        },
+        {
+          "rank": 2,
+          "book_id": 1365862,
+          "title": "The Writer's Spellbook: Creating Magic Systems For Fantasy",
+          "author": "Lillian Csernica",
+          "distance": 0.4464,
+          "score": 0.02532
+        },
+        {
+          "rank": 3,
+          "book_id": 6077823,
+          "title": "Five: The Power Rising: (Epic Fantasy Series, Action Adventure, Magic, Sword Sorcery, Mystery, Romance, Family Saga): First Prequel to Chest of Souls",
+          "author": "Michelle Erickson",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 4,
+          "book_id": 1342011,
+          "title": "Tapestries",
+          "author": "Kathy Ice",
+          "distance": 0.3963,
+          "score": 0.01639
+        },
+        {
+          "rank": 5,
+          "book_id": 4639965,
+          "title": "Elements of Magic: An Elemental Fantasy Series",
+          "author": "Melinda VanLone",
+          "distance": 0.4185,
+          "score": 0.01613
+        },
+        {
+          "rank": 6,
+          "book_id": 4357619,
+          "title": "Fantasy Adventure Books for Teens - The Magic Lamp & Unpected Journey: Action, Fantasy, Adventure, Magic, Epic, Magician, Reading, Short Reads, Fairy Tales, ... Suspense",
+          "author": "Jangle Charm",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 7,
+          "book_id": 4266166,
+          "title": "Advanced Sorcery: Demons, Necromancy, & High-Level Magic",
+          "author": "Chaosium Inc.",
+          "distance": 0.4199,
+          "score": 0.01587
+        },
+        {
+          "rank": 8,
+          "book_id": 1901269,
+          "title": "Success Magic - The Prosperity Secret to Win with Magical Spiritual Power: How to Grow Rich, Influence People, Protect Your Mindset & Love Yourself Like a Warrior using Timeless Abundance Secrets",
+          "author": "George Mentz",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 9,
+          "book_id": 4917649,
+          "title": "Jeu Msx: North and South, Space Invaders, Final Fantasy, Tetris, Metal Gear, Metal Gear 2: Solid Snake, Liste de Jeux Msx, Bubble Bobble, Crazy Cars, Q*bert, Out Run, Sorcery, Dig Dug, Gradius, Barbarian, Might and Magic: The Secret of the Inner Sanctum",
+          "author": "Source Wikipedia",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 10,
+          "book_id": 2064848,
+          "title": "Realms of Sorcery",
+          "author": "Ken Walton",
+          "distance": 0.4227,
+          "score": 0.01562
+        }
+      ]
+    },
+    {
+      "id": "q16",
+      "type": "mood",
+      "query": "a feel-good story about a grumpy old man whose life is changed by his new neighbours",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 3163190,
+          "title": "A Whole New Way to Eat: 135+ feel-good recipes from About Life",
+          "author": "Vladia Cobrdova",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 2,
+          "book_id": 2046742,
+          "title": "The Grumpy Grandmas",
+          "author": "Kurt Zimmerman",
+          "distance": 0.3837,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 4292903,
+          "title": "The Old Man Next Door",
+          "author": "Justin  Chasteen",
+          "distance": 0.3969,
+          "score": 0.01613
+        },
+        {
+          "rank": 4,
+          "book_id": 3711617,
+          "title": "Old Testament Challenge: Creating a New Community: Life-Changing Stories from the Pentateuch",
+          "author": "John Ortberg",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 5926149,
+          "title": "Grumpy Old Men: The Official Handbook",
+          "author": "Stuart Prebble",
+          "distance": 0.4056,
+          "score": 0.01587
+        },
+        {
+          "rank": 6,
+          "book_id": 553233,
+          "title": "Feminization Erotica: Good Boy - Now Wear My Skirt (Submissive Husband, Dominant Wife, Crossdressing Her Man) Plus Bonus Erotic Story & Gender Transformation Photo Gallery by A New Free Life Books",
+          "author": "Alexa Moore",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 95653,
+          "title": "Cancer - It's a Good Thing I Got It !: The Life Story of a Very Lucky Man",
+          "author": "David A. Koop",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 8,
+          "book_id": 821193,
+          "title": "How the Old Man Learned to Smile",
+          "author": "Uwe Blesching",
+          "distance": 0.4065,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 4507146,
+          "title": "An old guy who feels good",
+          "author": "Worden McDonald",
+          "distance": 0.4085,
+          "score": 0.01538
+        },
+        {
+          "rank": 10,
+          "book_id": 759418,
+          "title": "The Bible and the Pursuit of Happiness: What the Old and New Testaments Teach Us about the Good Life",
+          "author": "Brent A. Strawn",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q17",
+      "type": "similar_to",
+      "query": "books like The Martian",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 661715,
+          "title": "Articles on Children's Picture Books, Including: Animalia (Book), Picture Book, Goodnight Moon, Happy Birthday, Cookie Monster, the Little Engine That Could, Horton Hears a Who!, Jumanji, Maya the Bee, the Loudness of Sam, I Like Pumpkins",
+          "author": "Hephaestus Books",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 2,
+          "book_id": 4326211,
+          "title": "The Martian Chronicles",
+          "author": "SparkNotes",
+          "distance": 0.2504,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 1899705,
+          "title": "Mars",
+          "author": "World Book, Inc.",
+          "distance": 0.2524,
+          "score": 0.01613
+        },
+        {
+          "rank": 4,
+          "book_id": 1220240,
+          "title": "Adult Swear Word Coloring Book : Sweary Mary And Her Friends Tell it Like It Is!: 44 Vintage Coloring Book Pages For Relaxation & Stress Relief",
+          "author": "Coloring Books for Adults",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 2276889,
+          "title": "Classic Martian Stories, Vol. 5",
+          "author": "William Ferguson",
+          "distance": 0.2757,
+          "score": 0.01587
+        },
+        {
+          "rank": 6,
+          "book_id": 3359097,
+          "title": "Minecraft Diary: of Steve the Miner Book 1: (Minecraft Diamond Series) For kids who like minecraft tales, minecraft school, minecraft diaries, wimpy tales, ...",
+          "author": "Steve The Miner",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 2464228,
+          "title": "A Princess of Mars and New Tales of the Red Planet",
+          "author": "Edgar Rice Burroughs",
+          "distance": 0.2892,
+          "score": 0.01562
+        },
+        {
+          "rank": 8,
+          "book_id": 3810308,
+          "title": "Articles on Tortallan Books, Including: The Song of the Lioness, the Immortals (Series), Protector of the Small, Daughter of the Lioness, Wild Magic, Alanna: The First Adventure, in the Hand of the Goddess, the Woman Who Rides Like a Man",
+          "author": "Hephaestus Books",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 701912,
+          "title": "The Case for Mars",
+          "author": "Penelope J. Boston",
+          "distance": 0.2894,
+          "score": 0.01538
+        },
+        {
+          "rank": 10,
+          "book_id": 4774224,
+          "title": "The Book of Books",
+          "author": "Editors of The Book of Books",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q18",
+      "type": "similar_to",
+      "query": "books like Gone Girl",
+      "expected_count": 2,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 1650216,
+          "title": "Gone Girl Ridiculous Over-Analysis of Popular Fiction Books: Gone Girl by Gillian Flynn",
+          "author": "James Sterling",
+          "distance": 0.2869,
+          "score": 0.03279
+        },
+        {
+          "rank": 2,
+          "book_id": 5600963,
+          "title": "Gone Girl: A Novel By Gillian Flynn | Conversation Starters",
+          "author": "Daily Books",
+          "distance": 0.408,
+          "score": 0.01991
+        },
+        {
+          "rank": 3,
+          "book_id": 3649085,
+          "title": "Gone Girl: A Guide for Book Clubs",
+          "author": "Kathryn Cope",
+          "distance": 0.3215,
+          "score": 0.01613
+        },
+        {
+          "rank": 4,
+          "book_id": 6160542,
+          "title": "Seaside Getaway & Antique Hunting Two Books Together: Adult Coloring Books Tea in all Departments; Coloring Books Tea Cups in all D; Coloring Books ... for Men in All D; Coloring Books girls 9 12",
+          "author": "Coloring Books for Adults",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 5726271,
+          "title": "The Book Club Girl Sampler: Excerpts from New and Upcoming Books Perfect for Book Clubs, Book Club Recommendations and Resources, and Recipes from Your Favorite Authors",
+          "author": "Book Club Girl",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 6,
+          "book_id": 2518901,
+          "title": "Gone Girl: G Whiz Trilogy Set (Limited Edition): Fun Facts & Trivia Tidbits",
+          "author": "G. Whiz",
+          "distance": 0.3227,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 263461,
+          "title": "Gone Girl by Gillian Flynn l Summary & Study Guide",
+          "author": "BookRags",
+          "distance": 0.3269,
+          "score": 0.01562
+        },
+        {
+          "rank": 8,
+          "book_id": 5020592,
+          "title": "Trucks, Planes and Cars Coloring Book: Cars coloring book for kids & toddlers - activity books for preschooler - coloring book for Boys, Girls, Fun, Early Learning",
+          "author": "Ann Rainbow Coloring books",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 2281208,
+          "title": "Gillian Flynn's Gone Girl: 21 Things You Must Know",
+          "author": "Magdalene Fraser",
+          "distance": 0.3282,
+          "score": 0.01538
+        },
+        {
+          "rank": 10,
+          "book_id": 3440703,
+          "title": "Seaside Getaway Adult Colouring Books One Year Day Planner Europe: Adult Coloring Books Tea in all Departments; Coloring Books Tea Cups in all D; ... for Men in All D; Coloring Books girls 9 12",
+          "author": "Coloring Books for Adults",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q19",
+      "type": "similar_to",
+      "query": "books like The Hunger Games",
+      "expected_count": 2,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 5960702,
+          "title": "HUNGER GAMES TRILOGY: 7 KEYS TO LIFE AND HOPE from The Hunger Games, Catching Fire and Mockingjay Books and Movies",
+          "author": "D.R. Burns",
+          "distance": 0.2527,
+          "score": 0.0308
+        },
+        {
+          "rank": 2,
+          "book_id": 6278851,
+          "title": "Articles on the Hunger Games, Including: Suzanne Collins, Catching Fire (2009 Novel), the Hunger Games Trilogy, Mockingjay, Katniss Everdeen, Peeta Mellark, List of Characters in the Hunger Games Trilogy, the Hunger Games Universe",
+          "author": "Hephaestus Books",
+          "distance": 0.2761,
+          "score": 0.02914
+        },
+        {
+          "rank": 3,
+          "book_id": 767531,
+          "title": "The Hunger Games Trilogy: Questions and Answer, A guide book for Hunger Games Trilogy,Mockingjay,Catching Fire",
+          "author": "Susan Boyle",
+          "distance": 0.293,
+          "score": 0.02705
+        },
+        {
+          "rank": 4,
+          "book_id": 509744,
+          "title": "Book Sidekick - The Hunger Games (Hunger Games Trilogy)",
+          "author": "BookBuddy",
+          "distance": 0.2937,
+          "score": 0.02648
+        },
+        {
+          "rank": 5,
+          "book_id": 1352418,
+          "title": "The Hunger Games: A WikiFocus Book",
+          "author": "George Andersen",
+          "distance": 0.2604,
+          "score": 0.02626
+        },
+        {
+          "rank": 6,
+          "book_id": 382264,
+          "title": "The Hunger Games Trilogy: A guide book, Questions and Answer, Mystery of Hunger Games,Mockingjay,Catching Fire.",
+          "author": "Fifty Fire",
+          "distance": 0.3038,
+          "score": 0.02586
+        },
+        {
+          "rank": 7,
+          "book_id": 683318,
+          "title": "Commentary on The Hunger Games: A WikiFocus Book",
+          "author": "George Andersen",
+          "distance": 0.2633,
+          "score": 0.02454
+        },
+        {
+          "rank": 8,
+          "book_id": 344117,
+          "title": "Book Review: The Hunger Games, By Suzanne Collins",
+          "author": "Expert Book Reviews",
+          "distance": 0.2908,
+          "score": 0.02218
+        },
+        {
+          "rank": 9,
+          "book_id": 3586136,
+          "title": "The World's Toughest Hunger Games Quiz Book",
+          "author": "Shaun Finnie",
+          "distance": 0.2996,
+          "score": 0.02187
+        },
+        {
+          "rank": 10,
+          "book_id": 5528260,
+          "title": "The Hunger Games - Book One",
+          "author": "BookCaps",
+          "distance": 0.305,
+          "score": 0.02153
+        }
+      ]
+    },
+    {
+      "id": "q20",
+      "type": "similar_to",
+      "query": "books like Harry Potter but for adults",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 5077366,
+          "title": "Books For Kids Age (9-12): 100 Books Recommended by Parents and Kids Aged 9 to 12 Years",
+          "author": "Sandra Ehlert",
+          "distance": 0.319,
+          "score": 0.01639
+        },
+        {
+          "rank": 2,
+          "book_id": 1220240,
+          "title": "Adult Swear Word Coloring Book : Sweary Mary And Her Friends Tell it Like It Is!: 44 Vintage Coloring Book Pages For Relaxation & Stress Relief",
+          "author": "Coloring Books for Adults",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 2877693,
+          "title": "Best Books for Young Adult Readers Grades 7 - 12",
+          "author": "Stephen J. Calvert",
+          "distance": 0.3303,
+          "score": 0.01613
+        },
+        {
+          "rank": 4,
+          "book_id": 3432357,
+          "title": "Welcome Winter Adult Colouring Book Doodle Pad Europe: Adult Coloring Books Best Sellers in all Departments; Coloring Books for Adults Best Sellers in ... in al; Adult Coloring Book Sets in al; Adult",
+          "author": "Coloring Books for Adults",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 2247837,
+          "title": "25 Favorite Kid's Books for Middle and Young Adult Readers",
+          "author": "Smashbooks",
+          "distance": 0.3498,
+          "score": 0.01587
+        },
+        {
+          "rank": 6,
+          "book_id": 4815005,
+          "title": "Flowers Miniature Coloring Books: Coloring Books for Adults Flowers in All Departments; Adult coloring Books Flowers in al; Adult Coloring Books Tea in al; Adult Coloring Books Tea Party in al",
+          "author": "Coloring Books for Adults",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 6222112,
+          "title": "Junior Genreflecting: A Guide to Good Reads and Series Fiction for Children",
+          "author": "Cheryl P. Scheer",
+          "distance": 0.3572,
+          "score": 0.01562
+        },
+        {
+          "rank": 8,
+          "book_id": 5186366,
+          "title": "Easter Morning Adult Colouring Book One Year Day Planner Europe: Coloring Books Easter in all Departments; Easter Decorations in all D; Easter Basket Stuffers in al; Adult Coloring Books Disney in al; Adult Coloring Books Floral in al; Easter Coloring Boo",
+          "author": "Coloring Books for Adults",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 4716470,
+          "title": "Best Books for Young Teen Readers: Grades 7-10",
+          "author": "John T. Gillespie",
+          "distance": 0.3583,
+          "score": 0.01538
+        },
+        {
+          "rank": 10,
+          "book_id": 6159712,
+          "title": "Nautical: Ocean Coloring Books in all Departments; Adult Coloring Books Ocean Life in al; Coloring Books for Adults Ocean Animals in al; Coloring ... in al; Coloring Books for Adults Disney in al",
+          "author": "Coloring Books for Adults",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q21",
+      "type": "lookup",
+      "query": "Dune by Frank Herbert",
+      "expected_count": 1,
+      "found": [
+        {
+          "title": "Dune",
+          "rank": 3
+        }
+      ],
+      "unresolved": [],
+      "recall": 1.0,
+      "reciprocal_rank": 0.3333333333333333,
+      "first_rank": 3,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 4746102,
+          "title": "Frank Herbert Dune Chronicles #2-6",
+          "author": "Frank Herbert",
+          "distance": 0.1616,
+          "score": 0.03226
+        },
+        {
+          "rank": 2,
+          "book_id": 3344607,
+          "title": "The Notebooks of Frank Herbert's Dune",
+          "author": "Frank Herbert",
+          "distance": 0.1916,
+          "score": 0.03202
+        },
+        {
+          "rank": 3,
+          "book_id": 4304138,
+          "title": "Dune: An interview with Frank Herbert and David Lynch",
+          "author": "Frank Herbert",
+          "distance": 0.2353,
+          "score": 0.02976
+        },
+        {
+          "rank": 4,
+          "book_id": 704125,
+          "title": "Dune Master: A Frank Herbert Bibliography",
+          "author": "Daniel J.H. Levack",
+          "distance": 0.1923,
+          "score": 0.02743
+        },
+        {
+          "rank": 5,
+          "book_id": 708036,
+          "title": "Frank Herbert: Prophet of Dune",
+          "author": "Harold Lee Prosser",
+          "distance": 0.2335,
+          "score": 0.02658
+        },
+        {
+          "rank": 6,
+          "book_id": 4531336,
+          "title": "Frank Herbert's Dune",
+          "author": "Frederic P.  Miller",
+          "distance": 0.2358,
+          "score": 0.0256
+        },
+        {
+          "rank": 7,
+          "book_id": 3712033,
+          "title": "The Book of Frank Herbert",
+          "author": "Frank Herbert",
+          "distance": 0.2885,
+          "score": 0.02556
+        },
+        {
+          "rank": 8,
+          "book_id": 4067966,
+          "title": "Chapterhouse: Dune by Frank Herbert Summary & Study Guide",
+          "author": "BookRags",
+          "distance": 0.2516,
+          "score": 0.02485
+        },
+        {
+          "rank": 9,
+          "book_id": 101508,
+          "title": "Songs of Muad'Dib: The Poetry of Frank Herbert",
+          "author": "Frank Herbert",
+          "distance": 0.3013,
+          "score": 0.02459
+        },
+        {
+          "rank": 10,
+          "book_id": 1370513,
+          "title": "Summary & Study Guide Children of Dune by Frank Herbert",
+          "author": "BookRags",
+          "distance": 0.2442,
+          "score": 0.02439
+        }
+      ]
+    },
+    {
+      "id": "q22",
+      "type": "lookup",
+      "query": "Pride and Prejudice",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 1912231,
+          "title": "Pride and Prejudice W/Conn 10pk",
+          "author": "Holt, Rinehart and Winston, Inc.",
+          "distance": 0.2729,
+          "score": 0.03202
+        },
+        {
+          "rank": 2,
+          "book_id": 4617412,
+          "title": "Pride, Prejudice and Popcorn: TV and Film Adaptations of Pride and Prejudice, Wuthering Heights, and Jane Eyre",
+          "author": "Carrie Sessarego",
+          "distance": 0.3543,
+          "score": 0.02615
+        },
+        {
+          "rank": 3,
+          "book_id": 3200866,
+          "title": "Pride and the Horror Below: Pride and Prejudice variation",
+          "author": "Brian Egan",
+          "distance": 0.3404,
+          "score": 0.02454
+        },
+        {
+          "rank": 4,
+          "book_id": 2499917,
+          "title": "The Making of Pride and Prejudice",
+          "author": "Sue Birtwistle",
+          "distance": 0.3566,
+          "score": 0.02096
+        },
+        {
+          "rank": 5,
+          "book_id": 4149662,
+          "title": "Notes on Pride and Prejudice: Notes",
+          "author": "Geoffrey Nash",
+          "distance": 0.2253,
+          "score": 0.01639
+        },
+        {
+          "rank": 6,
+          "book_id": 271644,
+          "title": "Pride and Prejudice and Zombies  / Pride and Prejudice and Zombies: Dawn of the Dreadfuls",
+          "author": "Seth Grahame-Smith",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 7,
+          "book_id": 4564528,
+          "title": "Pride and Prejudice",
+          "author": "BookCaps",
+          "distance": 0.2374,
+          "score": 0.01613
+        },
+        {
+          "rank": 8,
+          "book_id": 3611823,
+          "title": "Pride & Prejudice Villains Revisited \u2013 Redeemed \u2013 Reimagined: A Collection of Six Pride and Prejudice Variation Short Stories",
+          "author": "Renata McMann",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 9,
+          "book_id": 1968133,
+          "title": "Pride and Prejudice",
+          "author": "SparkNotes",
+          "distance": 0.2497,
+          "score": 0.01587
+        },
+        {
+          "rank": 10,
+          "book_id": 4772300,
+          "title": "Pride and Prejudice: A Sourcebook",
+          "author": "Robert  Morrison",
+          "distance": 0.2835,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q23",
+      "type": "lookup",
+      "query": "Stephen King The Shining",
+      "expected_count": 1,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 6312567,
+          "title": "Discovering Stephen King's the Shining",
+          "author": "Tony Magistrale",
+          "distance": 0.2024,
+          "score": 0.02601
+        },
+        {
+          "rank": 2,
+          "book_id": 5202574,
+          "title": "Remembering Stephen King\u2019s \"The Shining\" with Shelley Duvall",
+          "author": "Lee Gambin",
+          "distance": 0.2399,
+          "score": 0.02558
+        },
+        {
+          "rank": 3,
+          "book_id": 2605910,
+          "title": "The Shining by Stephen King l Summary & Study Guide",
+          "author": "BookRags",
+          "distance": 0.2424,
+          "score": 0.02472
+        },
+        {
+          "rank": 4,
+          "book_id": 4419950,
+          "title": "Summary & Study Guide The Shining by Stephen King",
+          "author": "BookRags",
+          "distance": 0.2599,
+          "score": 0.02456
+        },
+        {
+          "rank": 5,
+          "book_id": 2194780,
+          "title": "Doctor Sleep: (The Shining) by Stephen King -- Sidekick",
+          "author": "BookBuddy",
+          "distance": 0.3459,
+          "score": 0.02255
+        },
+        {
+          "rank": 6,
+          "book_id": 4056577,
+          "title": "Stephen King Thrillers: Grades 9-12",
+          "author": "Stephen King",
+          "distance": 0.391,
+          "score": 0.02019
+        },
+        {
+          "rank": 7,
+          "book_id": 5557576,
+          "title": "Doctor Sleep: (The Shining) by Stephen King -- Review",
+          "author": "Expert Book Reviews",
+          "distance": 0.3726,
+          "score": 0.02001
+        },
+        {
+          "rank": 8,
+          "book_id": 260692,
+          "title": "Stephen King Stories Made Into Films: The Shining, the Dead Zone, Dolores Claiborne and the Shawshank Redemption",
+          "author": "Victoria Hockfield",
+          "distance": 0.3844,
+          "score": 0.01952
+        },
+        {
+          "rank": 9,
+          "book_id": 3028089,
+          "title": "Stephen King: Der Dunkle Turm, Es, Stephen Kings Haus Der Verdammnis, Die Welt Von Stephen King, Shining, Die Verurteilten, Desperation",
+          "author": "Source Wikipedia",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 10,
+          "book_id": 4561563,
+          "title": "Discovering Stephen King's \"The Shining\"",
+          "author": "Tony Magistrale",
+          "distance": 0.2046,
+          "score": 0.01613
+        }
+      ]
+    },
+    {
+      "id": "q24",
+      "type": "lookup",
+      "query": "Sapiens",
+      "expected_count": 1,
+      "found": [
+        {
+          "title": "Sapiens",
+          "rank": 2
+        }
+      ],
+      "unresolved": [],
+      "recall": 1.0,
+      "reciprocal_rank": 0.5,
+      "first_rank": 2,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 5266374,
+          "title": "Summary:Sapiens: Summary and Analysis of Yuval Noah Harari\u2019s \u201cSapiens: A Brief History of Humankind\u201d",
+          "author": "Summary Station",
+          "distance": 0.4543,
+          "score": 0.02927
+        },
+        {
+          "rank": 2,
+          "book_id": 4852340,
+          "title": "Sapiens: A Brief History of Humankind",
+          "author": "Yuval Noah Harari",
+          "distance": 0.4601,
+          "score": 0.02822
+        },
+        {
+          "rank": 3,
+          "book_id": 1069396,
+          "title": "Summary and Analysis of Sapiens: A Brief History of Mankind by Yuval Noah Harari",
+          "author": "SpeedReader Summaries",
+          "distance": 0.4198,
+          "score": 0.02712
+        },
+        {
+          "rank": 4,
+          "book_id": 5127945,
+          "title": "Summary and Analysis of Sapiens: A Brief History of Humankind: Based on the Book by Yuval Noah Harari",
+          "author": "Worth Books",
+          "distance": 0.4107,
+          "score": 0.02633
+        },
+        {
+          "rank": 5,
+          "book_id": 3092587,
+          "title": "Summary: Sapiens by Yuval Noah Harari: 23 Key Takeaways in Less Than 30 Minutes",
+          "author": "Marvinn Land",
+          "distance": 0.4161,
+          "score": 0.02577
+        },
+        {
+          "rank": 6,
+          "book_id": 3015363,
+          "title": "Sapiens and Homo Deus: The E-book Collection: A Brief History of Humankind and A Brief History of Tomorrow",
+          "author": "Yuval Noah Harari",
+          "distance": 0.4838,
+          "score": 0.02464
+        },
+        {
+          "rank": 7,
+          "book_id": 3306768,
+          "title": "Sapiens: by Yuval Noah Harari | Key Takeaways, Analysis & Review: A Brief History of Humankind",
+          "author": "Eureka Books",
+          "distance": 0.4676,
+          "score": 0.02316
+        },
+        {
+          "rank": 8,
+          "book_id": 4308791,
+          "title": "Sapiens: De Animales a Dioses - Resumen del libro de Yuval Noah Harari",
+          "author": "Sapiens Editorial",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 9,
+          "book_id": 1147631,
+          "title": "Conqueror's Quest",
+          "author": "Stephen Gambuti",
+          "distance": 0.3997,
+          "score": 0.01639
+        },
+        {
+          "rank": 10,
+          "book_id": 3160346,
+          "title": "Del Big Bang Al Homo Sapiens / From Big Ban to Homo Sapiens",
+          "author": "Antonio Velez",
+          "distance": null,
+          "score": 0.01613
+        }
+      ]
+    },
+    {
+      "id": "q25",
+      "type": "nonfiction",
+      "query": "a history of how humans evolved and built civilisations",
+      "expected_count": 2,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 4904093,
+          "title": "How America Eats: A Social History of U.S. Food and Culture",
+          "author": "Jennifer Jensen Wallach author of How America Eats: A Social History of US Food and Culture",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 2,
+          "book_id": 3383623,
+          "title": "The Origins of Humankind",
+          "author": "Stephen Tomkins",
+          "distance": 0.3378,
+          "score": 0.01639
+        },
+        {
+          "rank": 3,
+          "book_id": 1114213,
+          "title": "Human Evolution",
+          "author": "Robert Gardner",
+          "distance": 0.3561,
+          "score": 0.01613
+        },
+        {
+          "rank": 4,
+          "book_id": 4238521,
+          "title": "Richard Wright: From Black Boy to World Citizen",
+          "author": "Jennifer Jensen Wallach author of How America Eats: A Social History of US Food and Culture",
+          "distance": null,
+          "score": 0.01613
+        },
+        {
+          "rank": 5,
+          "book_id": 4268707,
+          "title": "Wiley-Blackwell Encyclopedia of Human Evolution",
+          "author": "Bernard Wood",
+          "distance": 0.3602,
+          "score": 0.01587
+        },
+        {
+          "rank": 6,
+          "book_id": 5704803,
+          "title": "Patterns and Processes in the History of Life: Report of the Dahlem Workshop on Patterns and Processes in the History of Life, Berlin 1985, 6/16-21",
+          "author": "Germany) Dahlem Workshop on Patterns and Processes in the History of Life (1985 : Berlin",
+          "distance": null,
+          "score": 0.01587
+        },
+        {
+          "rank": 7,
+          "book_id": 5914157,
+          "title": "Holt World History: The Human Journey: Readings in World History Full Survey",
+          "author": "Holt, Rinehart, and Winston, Inc.",
+          "distance": null,
+          "score": 0.01562
+        },
+        {
+          "rank": 8,
+          "book_id": 4659582,
+          "title": "The Emergence of Modern Humans: Biocultural Adaptations in the Later Pleistocene",
+          "author": "Erik Trinkaus",
+          "distance": 0.3664,
+          "score": 0.01562
+        },
+        {
+          "rank": 9,
+          "book_id": 4201027,
+          "title": "Macroevolution in Human Prehistory",
+          "author": "Anna Marie Prentiss",
+          "distance": 0.3682,
+          "score": 0.01538
+        },
+        {
+          "rank": 10,
+          "book_id": 565814,
+          "title": "History as a human science: The conception of history in some classic American philosophers",
+          "author": "University Press of America",
+          "distance": null,
+          "score": 0.01538
+        }
+      ]
+    },
+    {
+      "id": "q26",
+      "type": "nonfiction",
+      "query": "how habits form and how to change them",
+      "expected_count": 2,
+      "found": [],
+      "unresolved": [],
+      "recall": 0.0,
+      "reciprocal_rank": 0.0,
+      "first_rank": null,
+      "top_results": [
+        {
+          "rank": 1,
+          "book_id": 704582,
+          "title": "Habits of Change: How to Change Your Habits When Change Is Difficult",
+          "author": "Sam  Davies",
+          "distance": 0.2083,
+          "score": 0.03009
+        },
+        {
+          "rank": 2,
+          "book_id": 6272056,
+          "title": "Change Your Habits, Change Your World ( a manifesto on the impact habits have in our lives)",
+          "author": "Stephen H. Pressler",
+          "distance": 0.2778,
+          "score": 0.02633
+        },
+        {
+          "rank": 3,
+          "book_id": 5000547,
+          "title": "Habit Development: Habit Forming Guide: Get Into Your Mind and Form the Habits That Will Improve Your Life, Break Bad Habits and Replace Them With Good Once!",
+          "author": "Josh David",
+          "distance": 0.2897,
+          "score": 0.02552
+        },
+        {
+          "rank": 4,
+          "book_id": 1446729,
+          "title": "Habits: The Ultimate Habit Creating Guide That Will Change Your Life By Helping You To Successfully Create Good And Highly Effective Habits Everyday",
+          "author": "Ronald Valentino",
+          "distance": 0.2778,
+          "score": 0.0252
+        },
+        {
+          "rank": 5,
+          "book_id": 4954450,
+          "title": "Habits:: How Habits Form And The Top Habits to Break To Live a Full Productive Lifestyle",
+          "author": "Shane Kent",
+          "distance": 0.2449,
+          "score": 0.025
+        },
+        {
+          "rank": 6,
+          "book_id": 5964456,
+          "title": "Habit: Habit Change Now! - The Ultimate Guide To Changing Any Habit Fast! - Change Habits And Stop Procrastination, Maximize Self Control And Willpower, ... Discipline, Concentration, Time Management)",
+          "author": "Ryan Cooper",
+          "distance": 0.3063,
+          "score": 0.02439
+        },
+        {
+          "rank": 7,
+          "book_id": 2271030,
+          "title": "Habits For Habits: 26 Habits To Start A Habit, Stick To It and Change Your Life",
+          "author": "Ansovinus Bonus Chai",
+          "distance": 0.2907,
+          "score": 0.02273
+        },
+        {
+          "rank": 8,
+          "book_id": 3453175,
+          "title": "Life\u2019s Habits Mastery - Mastering The Habits Of Success, How To Change Bad Habits And Make The Good Ones Stick!",
+          "author": "Daniel Web",
+          "distance": 0.3117,
+          "score": 0.01964
+        },
+        {
+          "rank": 9,
+          "book_id": 3800295,
+          "title": "Habits For A Better Life: An Easier and Faster Way to Break The Habit of Being Yourself and Form Good Habits with Lasting Changes!",
+          "author": "Francisco Hamilton",
+          "distance": null,
+          "score": 0.01639
+        },
+        {
+          "rank": 10,
+          "book_id": 4245992,
+          "title": "Habit Hacking: Breaking, Building, and Transforming Your Habits",
+          "author": "Dean Yeong",
+          "distance": 0.2265,
+          "score": 0.01613
+        }
+      ]
+    }
+  ]
+}

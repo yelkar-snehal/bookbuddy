@@ -68,7 +68,12 @@ def fetch_author_names(session: Session, author_ids: set[int]) -> dict[int, str]
     return {row.id: row.name for row in rows}
 
 
-def evaluate_query(session: Session, query: dict, min_ratings: int | None) -> dict:
+def evaluate_query(
+    session: Session,
+    query: dict,
+    min_ratings: int | None,
+    mode: str,
+) -> dict:
     expected_books = []
     unresolved = []
 
@@ -88,6 +93,7 @@ def evaluate_query(session: Session, query: dict, min_ratings: int | None) -> di
         q=query["query"],
         limit=TOP_K,
         min_ratings=min_ratings,
+        mode=mode,
         db=session,
     )
     result_ids = [result.book.id for result in results]
@@ -124,7 +130,8 @@ def evaluate_query(session: Session, query: dict, min_ratings: int | None) -> di
                 "book_id": result.book.id,
                 "title": result.book.title,
                 "author": author_names.get(result.book.author_id),
-                "distance": round(result.distance, 4),
+                "distance": None if result.distance is None else round(result.distance, 4),
+                "score": None if result.score is None else round(result.score, 5),
             }
             for rank, result in enumerate(results, start=1)
         ],
@@ -195,6 +202,12 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Only return books with at least this many ratings.",
     )
+    parser.add_argument(
+        "--mode",
+        choices=["semantic", "hybrid"],
+        default="semantic",
+        help="semantic: vector search only. hybrid: vector and keyword search fused with RRF.",
+    )
     return parser.parse_args()
 
 
@@ -202,30 +215,33 @@ def main() -> None:
     args = parse_args()
     queries = json.loads(QUERIES_PATH.read_text())["queries"]
     logger.info(
-        "Evaluating %d queries with %s, top %d, min_ratings=%s",
+        "Evaluating %d queries with %s, top %d, min_ratings=%s, mode=%s",
         len(queries),
         EMBEDDING_MODEL,
         TOP_K,
         args.min_ratings,
+        args.mode,
     )
 
     with Session(engine) as session:
         results = []
         for query in queries:
             logger.info("Running %s: %s", query["id"], query["query"])
-            results.append(evaluate_query(session, query, args.min_ratings))
+            results.append(evaluate_query(session, query, args.min_ratings, args.mode))
 
     summary = summarize(results)
     print_report(results, summary)
 
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
-    run_label = f"min{args.min_ratings}" if args.min_ratings is not None else "nofilter"
+    filter_label = f"min{args.min_ratings}" if args.min_ratings is not None else "nofilter"
+    run_label = f"{args.mode}_{filter_label}"
     output_path = RESULTS_DIR / f"retrieval_{datetime.now():%Y%m%d_%H%M%S}_{run_label}.json"
     output_path.write_text(
         json.dumps(
             {
                 "embedding_model": EMBEDDING_MODEL,
                 "top_k": TOP_K,
+                "mode": args.mode,
                 "min_ratings": args.min_ratings,
                 "summary": summary,
                 "results": results,
