@@ -12,11 +12,15 @@ from sqlalchemy.orm import Session
 from app.db.database import engine
 
 
-EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
-EMBEDDING_DIMENSION = 384
+import os
+
+EMBEDDING_MODEL = os.getenv(
+    "EMBEDDING_MODEL",
+    "sentence-transformers/all-MiniLM-L6-v2",
+)
 FETCH_SIZE = 2048
 ENCODE_BATCH_SIZE = 128
-BOOK_LIMIT = None
+BOOK_LIMIT = 10
 
 logging.basicConfig(
     level=logging.INFO,
@@ -86,6 +90,7 @@ def insert_embeddings(
     session: Session,
     rows: list[dict],
     embeddings: list[list[float]],
+    embedding_dimension: int,
 ) -> None:
     session.execute(
         text(
@@ -111,7 +116,7 @@ def insert_embeddings(
             {
                 "book_id": row["id"],
                 "embedding_model": EMBEDDING_MODEL,
-                "embedding_dimension": EMBEDDING_DIMENSION,
+                "embedding_dimension": embedding_dimension,
                 "source_text": row["source_text"],
                 "embedding": vector_literal(embedding),
             }
@@ -123,7 +128,15 @@ def insert_embeddings(
 def main() -> None:
     start_time = time.perf_counter()
     logger.info("Loading embedding model: %s", EMBEDDING_MODEL)
+
     model = SentenceTransformer(EMBEDDING_MODEL)
+    embedding_dimension = model.get_embedding_dimension()
+
+    logger.info("Model: %s", EMBEDDING_MODEL)
+    logger.info("Dimensions: %d", embedding_dimension)
+    logger.info("Max sequence length: %d", model.max_seq_length)
+    logger.info("Device: %s", model.device)
+    
     # On Apple Silicon this should be "mps". "cpu" means the GPU is unused.
     logger.info("Embedding device: %s", model.device)
 
@@ -159,7 +172,7 @@ def main() -> None:
                 normalize_embeddings=True,
             ).tolist()
 
-            insert_embeddings(session, batch, embeddings)
+            insert_embeddings(session, batch, embeddings, embedding_dimension)
             session.commit()
 
             processed += len(batch)

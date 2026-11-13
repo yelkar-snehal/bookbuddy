@@ -1,6 +1,6 @@
 from typing import Literal
 
-from fastapi import APIRouter, Depends, Query
+from fastapi import APIRouter, Depends, Query, logger
 from sentence_transformers import SentenceTransformer
 from sqlalchemy import text
 from sqlalchemy.orm import Session
@@ -166,6 +166,14 @@ def get_embedding_model() -> SentenceTransformer:
 
     if _embedding_model is None:
         _embedding_model = SentenceTransformer(EMBEDDING_MODEL)
+
+        logger.info("Model: %s", EMBEDDING_MODEL)
+        logger.info(
+            "Dimensions: %d",
+            _embedding_model.get_sentence_embedding_dimension()
+        )
+        logger.info("Max sequence length: %d", _embedding_model.max_seq_length)
+        logger.info("Device: %s", _embedding_model.device)
 
     return _embedding_model
 
