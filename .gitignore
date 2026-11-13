@@ -19,3 +19,18 @@ data/embeddings/
 
 # Confidential files
 .env
+
+# Downloaded models and model weights
+models/
+*.safetensors
+*.bin
+*.onnx
+
+# Generated embeddings
+*.npy
+*.npz
+
+# Environment and local data
+.env
+.venv/
+__pycache__/
