@@ -1,3 +1,4 @@
+import os
 from typing import Literal
 
 from fastapi import APIRouter, Depends, Query, logger
@@ -11,8 +12,10 @@ from app.schemas.search import BookSearchResult
 
 router = APIRouter(prefix="/search", tags=["search"])
 
-EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
-EMBEDDING_DIMENSION = 384
+EMBEDDING_MODEL = os.getenv(
+    "EMBEDDING_MODEL",
+    "sentence-transformers/all-MiniLM-L6-v2",
+)
 # Each lane returns this many candidates before fusion.
 HYBRID_CANDIDATES = 50
 # Standard Reciprocal Rank Fusion constant. A higher value gives
@@ -191,6 +194,7 @@ def search_books(
     db: Session = Depends(get_db),
 ):
     model = get_embedding_model()
+    embedding_dimension = model.get_embedding_dimension()
     query_embedding = model.encode(q, normalize_embeddings=True).tolist()
 
     sql = HYBRID_SEARCH_SQL if mode == "hybrid" else SEMANTIC_SEARCH_SQL
@@ -200,7 +204,7 @@ def search_books(
         {
             "q": q,
             "embedding_model": EMBEDDING_MODEL,
-            "embedding_dimension": EMBEDDING_DIMENSION,
+            "embedding_dimension": embedding_dimension,
             "query_embedding": vector_literal(query_embedding),
             "limit": limit,
             "min_ratings": min_ratings,
