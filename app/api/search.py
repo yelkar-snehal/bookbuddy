@@ -1,3 +1,4 @@
+
 import os
 from typing import Literal
 
@@ -16,11 +17,15 @@ EMBEDDING_MODEL = os.getenv(
     "EMBEDDING_MODEL",
     "sentence-transformers/all-MiniLM-L6-v2",
 )
-# Each lane returns this many candidates before fusion.
+
+# Number of candidates retrieved by each search lane.
 HYBRID_CANDIDATES = 50
-# Standard Reciprocal Rank Fusion constant. A higher value gives
-# lower-ranked candidates relatively more weight.
+
+# Reciprocal Rank Fusion configuration.
 RRF_K = 60
+SEMANTIC_WEIGHT = 2.0
+KEYWORD_WEIGHT = 1.0
+
 _embedding_model: SentenceTransformer | None = None
 
 BOOK_COLUMNS = """
@@ -34,8 +39,6 @@ BOOK_COLUMNS = """
     books.num_reviews
 """
 
-# Books with few ratings are mostly study guides, summaries and obscure
-# titles that crowd out the books readers want.
 MIN_RATINGS_FILTER = """
     (
         CAST(:min_ratings AS integer) IS NULL
@@ -46,7 +49,8 @@ MIN_RATINGS_FILTER = """
 SEMANTIC_SEARCH_SQL = f"""
     SELECT
         {BOOK_COLUMNS},
-        book_embeddings.embedding <=> CAST(:query_embedding AS vector) AS distance,
+        book_embeddings.embedding
+            <=> CAST(:query_embedding AS vector) AS distance,
         NULL AS score
     FROM books
     JOIN book_embeddings
@@ -58,34 +62,32 @@ SEMANTIC_SEARCH_SQL = f"""
     LIMIT :limit
 """
 
-# Hybrid search runs two lanes and fuses them with Reciprocal Rank Fusion:
-#   score = 1 / (RRF_K + semantic_rank) + 1 / (RRF_K + keyword_rank)
-# A book found by only one lane gets only that lane's term.
-#
-# The keyword lane uses PostgreSQL full-text search on titles and author
-# names. ts_rank is not BM25, but it follows the same idea: books that
-# contain more of the query terms rank higher. The query terms are joined
-# with OR, so "Dune by Frank Herbert" matches the title "Dune" and the
-# author "Frank Herbert" separately.
 HYBRID_SEARCH_SQL = f"""
-    -- plainto_tsquery joins terms with AND. Replacing AND with OR and
-    -- parsing the result with 'simple' keeps the english stems as they are,
-    -- so the terms are not stemmed twice.
     WITH keyword_query AS (
         SELECT
             to_tsquery(
                 'simple',
-                replace(CAST(plainto_tsquery('english', :q) AS text), ' & ', ' | ')
+                replace(
+                    CAST(plainto_tsquery('english', :q) AS text),
+                    ' & ',
+                    ' | '
+                )
             ) AS title_query,
             to_tsquery(
                 'simple',
-                replace(CAST(plainto_tsquery('simple', :q) AS text), ' & ', ' | ')
+                replace(
+                    CAST(plainto_tsquery('simple', :q) AS text),
+                    ' & ',
+                    ' | '
+                )
             ) AS author_query
     ),
+
     semantic_candidates AS (
         SELECT
             books.id,
-            book_embeddings.embedding <=> CAST(:query_embedding AS vector) AS distance
+            book_embeddings.embedding
+                <=> CAST(:query_embedding AS vector) AS distance
         FROM books
         JOIN book_embeddings
             ON book_embeddings.book_id = books.id
@@ -95,59 +97,92 @@ HYBRID_SEARCH_SQL = f"""
         ORDER BY distance
         LIMIT :candidates
     ),
+
     semantic AS (
         SELECT
             id,
             distance,
-            ROW_NUMBER() OVER (ORDER BY distance) AS rank
+            ROW_NUMBER() OVER (
+                ORDER BY distance
+            ) AS rank
         FROM semantic_candidates
     ),
-    -- Two separate lookups, so each one can use its own GIN index.
+
     keyword_matches AS (
         SELECT books.id
         FROM books, keyword_query
-        WHERE to_tsvector('english', books.title) @@ keyword_query.title_query
+        WHERE to_tsvector('english', books.title)
+            @@ keyword_query.title_query
+
         UNION
+
         SELECT books.id
         FROM authors
         JOIN books ON books.author_id = authors.id
         CROSS JOIN keyword_query
-        WHERE to_tsvector('simple', authors.name) @@ keyword_query.author_query
+        WHERE to_tsvector('simple', authors.name)
+            @@ keyword_query.author_query
     ),
+
     keyword_candidates AS (
         SELECT
             books.id,
-            ts_rank(to_tsvector('english', books.title), keyword_query.title_query)
-                + ts_rank(
-                    to_tsvector('simple', coalesce(authors.name, '')),
-                    keyword_query.author_query
-                ) AS keyword_score
+            ts_rank(
+                to_tsvector('english', books.title),
+                keyword_query.title_query
+            )
+            +
+            ts_rank(
+                to_tsvector(
+                    'simple',
+                    coalesce(authors.name, '')
+                ),
+                keyword_query.author_query
+            ) AS keyword_score,
+            books.num_ratings
         FROM keyword_matches
         JOIN books ON books.id = keyword_matches.id
         LEFT JOIN authors ON authors.id = books.author_id
         CROSS JOIN keyword_query
         WHERE {MIN_RATINGS_FILTER}
-        -- num_ratings breaks ties between editions with the same title.
-        ORDER BY keyword_score DESC, books.num_ratings DESC NULLS LAST
+        ORDER BY
+            keyword_score DESC,
+            books.num_ratings DESC NULLS LAST
         LIMIT :candidates
     ),
+
     keyword AS (
         SELECT
             id,
             ROW_NUMBER() OVER (
-                ORDER BY keyword_score DESC
+                ORDER BY
+                    keyword_score DESC,
+                    num_ratings DESC NULLS LAST
             ) AS rank
         FROM keyword_candidates
     ),
+
     fused AS (
         SELECT
             id,
             semantic.distance,
-            coalesce(1.0 / (:rrf_k + semantic.rank), 0)
-                + coalesce(1.0 / (:rrf_k + keyword.rank), 0) AS score
+
+            (
+                COALESCE(
+                    :semantic_weight / (:rrf_k + semantic.rank),
+                    0
+                )
+                +
+                COALESCE(
+                    :keyword_weight / (:rrf_k + keyword.rank),
+                    0
+                )
+            ) AS score
+
         FROM semantic
         FULL OUTER JOIN keyword USING (id)
     )
+
     SELECT
         {BOOK_COLUMNS},
         fused.distance,
@@ -173,7 +208,7 @@ def get_embedding_model() -> SentenceTransformer:
         logger.info("Model: %s", EMBEDDING_MODEL)
         logger.info(
             "Dimensions: %d",
-            _embedding_model.get_sentence_embedding_dimension()
+            _embedding_model.get_sentence_embedding_dimension(),
         )
         logger.info("Max sequence length: %d", _embedding_model.max_seq_length)
         logger.info("Device: %s", _embedding_model.device)
@@ -194,23 +229,31 @@ def search_books(
     db: Session = Depends(get_db),
 ):
     model = get_embedding_model()
-    embedding_dimension = model.get_embedding_dimension()
-    query_embedding = model.encode(q, normalize_embeddings=True).tolist()
+
+    embedding_dimension = model.get_sentence_embedding_dimension()
+    query_embedding = model.encode(
+        q,
+        normalize_embeddings=True,
+    ).tolist()
 
     sql = HYBRID_SEARCH_SQL if mode == "hybrid" else SEMANTIC_SEARCH_SQL
 
+    params = {
+        "q": q,
+        "embedding_model": EMBEDDING_MODEL,
+        "embedding_dimension": embedding_dimension,
+        "query_embedding": vector_literal(query_embedding),
+        "limit": limit,
+        "min_ratings": min_ratings,
+        "candidates": HYBRID_CANDIDATES,
+        "rrf_k": RRF_K,
+        "semantic_weight": SEMANTIC_WEIGHT,
+        "keyword_weight": KEYWORD_WEIGHT,
+    }
+
     rows = db.execute(
         text(sql),
-        {
-            "q": q,
-            "embedding_model": EMBEDDING_MODEL,
-            "embedding_dimension": embedding_dimension,
-            "query_embedding": vector_literal(query_embedding),
-            "limit": limit,
-            "min_ratings": min_ratings,
-            "candidates": HYBRID_CANDIDATES,
-            "rrf_k": RRF_K,
-        },
+        params,
     ).mappings().all()
 
     return [
