@@ -3,7 +3,6 @@ import argparse
 import gc
 import json
 import logging
-import random
 import sys
 from collections import defaultdict
 from datetime import datetime
@@ -25,7 +24,6 @@ QUERIES_PATH = ROOT / "eval" / "retrieval_queries.json"
 RESULTS_DIR = ROOT / "eval" / "results"
 
 TOP_K = 10
-RANDOM_SEED = 42
 
 MINILM_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 BGE_MODEL = "BAAI/bge-small-en-v1.5"
@@ -35,6 +33,8 @@ MINILM_TABLE = "book_embeddings"
 
 HYBRID_CANDIDATES = 50
 RRF_K = 60
+SEMANTIC_WEIGHT = 2.0
+KEYWORD_WEIGHT = 1.0
 
 logging.basicConfig(
     level=logging.INFO,
@@ -259,11 +259,11 @@ def build_hybrid_sql(table_name: str) -> str:
                 id,
                 semantic.distance,
                 coalesce(
-                    1.0 / (:rrf_k + semantic.rank),
+                    :semantic_weight / (:rrf_k + semantic.rank),
                     0
                 )
                 + coalesce(
-                    1.0 / (:rrf_k + keyword.rank),
+                    :keyword_weight / (:rrf_k + keyword.rank),
                     0
                 ) AS score
             FROM semantic
@@ -320,6 +320,8 @@ def search_candidates(
     candidate_ids: list[int],
     min_ratings: int | None,
     mode: str,
+    semantic_weight: float,
+    keyword_weight: float,
 ) -> list[dict]:
     embedding_dimension = model.get_embedding_dimension()
 
@@ -348,6 +350,8 @@ def search_candidates(
             "min_ratings": min_ratings,
             "candidates": HYBRID_CANDIDATES,
             "rrf_k": RRF_K,
+            "semantic_weight": semantic_weight,
+            "keyword_weight": keyword_weight,
         },
     ).mappings().all()
 
@@ -364,6 +368,8 @@ def evaluate_query(
     candidate_id_set: set[int],
     min_ratings: int | None,
     mode: str,
+    semantic_weight: float,
+    keyword_weight: float,
 ) -> dict:
     expected_books = []
     unresolved = []
@@ -380,10 +386,6 @@ def evaluate_query(
 
         if not candidate_matches:
             outside_candidate_pool.append(expected)
-            expected_books.append({
-                **expected,
-                "book_ids": book_ids,
-            })
         else:
             expected_books.append({
                 **expected,
@@ -399,6 +401,8 @@ def evaluate_query(
         candidate_ids=candidate_ids,
         min_ratings=min_ratings,
         mode=mode,
+        semantic_weight=semantic_weight,
+        keyword_weight=keyword_weight,
     )
 
     result_ids = [result["id"] for result in results]
@@ -427,7 +431,13 @@ def evaluate_query(
         "id": query["id"],
         "type": query["type"],
         "query": query["query"],
+        # Only expected books that exist in the English candidate pool are
+        # included in retrieval metrics. Out-of-pool references are tracked
+        # separately as candidate-pool coverage, not retrieval failures.
         "expected_count": len(expected_books),
+        "eligible_expected_count": len(expected_books),
+        "outside_candidate_pool_count": len(outside_candidate_pool),
+        "unresolved_count": len(unresolved),
         "found": found,
         "unresolved": unresolved,
         "outside_candidate_pool": outside_candidate_pool,
@@ -496,8 +506,33 @@ def summarize(results: list[dict]) -> dict:
             ),
         }
 
+    total_expected = sum(
+        result["expected_count"]
+        + result["outside_candidate_pool_count"]
+        + result["unresolved_count"]
+        for result in results
+    )
+    eligible_expected = sum(
+        result["expected_count"] for result in results
+    )
+    outside_pool_expected = sum(
+        result["outside_candidate_pool_count"] for result in results
+    )
+    unresolved_expected = sum(
+        result["unresolved_count"] for result in results
+    )
+
     return {
         "overall": metrics(scored),
+        "candidate_pool_coverage": {
+            "expected_references": total_expected,
+            "eligible_in_english_pool": eligible_expected,
+            "outside_english_pool": outside_pool_expected,
+            "unresolved_in_database": unresolved_expected,
+            "coverage": round(
+                eligible_expected / total_expected, 3
+            ) if total_expected else None,
+        },
         "by_type": {
             query_type: metrics(items)
             for query_type, items in sorted(by_type.items())
@@ -565,6 +600,7 @@ def print_report(
 
     print()
     print("Overall:", summary["overall"])
+    print("Candidate-pool coverage:", summary["candidate_pool_coverage"])
 
     for query_type, metrics in summary["by_type"].items():
         print(f"  {query_type:<11}", metrics)
@@ -618,12 +654,29 @@ def parse_args() -> argparse.Namespace:
         default="semantic",
         help="semantic or hybrid retrieval.",
     )
+    parser.add_argument(
+        "--semantic-weight",
+        type=float,
+        default=SEMANTIC_WEIGHT,
+        help="Semantic RRF weight for hybrid mode (default matches API: 2.0).",
+    )
+    parser.add_argument(
+        "--keyword-weight",
+        type=float,
+        default=KEYWORD_WEIGHT,
+        help="Keyword RRF weight for hybrid mode (default matches API: 1.0).",
+    )
 
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
+
+    if args.semantic_weight < 0 or args.keyword_weight < 0:
+        raise ValueError("Hybrid weights must be non-negative")
+    if args.semantic_weight == 0 and args.keyword_weight == 0:
+        raise ValueError("At least one hybrid weight must be greater than zero")
 
     queries = json.loads(
         QUERIES_PATH.read_text()
@@ -666,10 +719,13 @@ def main() -> None:
             model_name = config["name"]
 
             logger.info(
-                "Evaluating %s | mode=%s | min_ratings=%s",
+                "Evaluating %s | mode=%s | min_ratings=%s | "
+                "hybrid_weights=%s:%s",
                 model_name,
                 args.mode,
                 args.min_ratings,
+                args.semantic_weight,
+                args.keyword_weight,
             )
 
             model = load_model(model_name)
@@ -694,6 +750,8 @@ def main() -> None:
                     candidate_id_set=candidate_id_set,
                     min_ratings=args.min_ratings,
                     mode=args.mode,
+                    semantic_weight=args.semantic_weight,
+                    keyword_weight=args.keyword_weight,
                 )
 
                 results.append(result)
@@ -747,10 +805,21 @@ def main() -> None:
                 "candidate_pool": {
                     "language": "English",
                     "count": len(candidate_ids),
-                    "random_seed": RANDOM_SEED,
+                    "definition": (
+                        "Books detected as English with embeddings present "
+                        "for both MiniLM and BGE."
+                    ),
+                    "models": {
+                        "minilm": MINILM_MODEL,
+                        "bge": BGE_MODEL,
+                    },
                 },
                 "top_k": TOP_K,
                 "mode": args.mode,
+                "hybrid_weights": {
+                    "semantic": args.semantic_weight,
+                    "keyword": args.keyword_weight,
+                },
                 "min_ratings": args.min_ratings,
                 "summaries": all_summaries,
                 "results": all_results,
